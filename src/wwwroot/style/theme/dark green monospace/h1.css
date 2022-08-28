@@ -1,0 +1,11 @@
+﻿h1 {
+    color: lightgreen;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 1rem 0;
+}

@@ -1,0 +1,15 @@
+﻿a, a * {
+    display: inline;
+}
+
+a {
+    color: #DDD;
+    text-decoration-color: transparent;
+    opacity: 0.8;
+    transition: opacity 0.33s linear, text-decoration-color 0.33s linear;
+    line-break: anywhere;
+}
+    a:hover {
+        text-decoration-color: #DDD;
+        opacity: 1;
+    }

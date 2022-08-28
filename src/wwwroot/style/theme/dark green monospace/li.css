@@ -1,0 +1,25 @@
+﻿li {
+    list-style-type: none;
+    position: relative;
+}
+
+    li:nth-child(2n + 1) {
+        background-color: #111;
+    }
+
+    li:nth-child(2n) {
+        background-color: #222;
+    }
+
+    li button {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+        bottom: 0.5rem;
+        width: 4rem;
+        opacity: 0.3;
+    }
+
+        li button:hover {
+            opacity: 1;
+        }

@@ -1,0 +1,11 @@
+﻿* {
+    display: grid;
+}
+
+head, script {
+    display: none;
+}
+
+p, p *, code, code * {
+    display: inline;
+}

@@ -1,0 +1,9 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-radius: 0;
+	box-sizing: border-box;
+	font-weight: 100;
+	font-size: inherit;
+}

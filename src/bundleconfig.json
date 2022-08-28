@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "wwwroot/style.css",
+    "inputFiles": [
+      "wwwroot/style/**/*.css"
+    ]
+  }
+]

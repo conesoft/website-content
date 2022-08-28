@@ -1,0 +1,29 @@
+﻿@page
+@using Conesoft.Website.CDN
+
+<!DOCTYPE html>
+<conesoft-html name="CDN" title="Conesoft CDN" url="https://cdn.conesoft.net" madeby="Conesoft">
+    <section>
+        <h1>Stylesheet</h1>
+        <ul>
+            <li>
+                link to the uncompressed stylesheet
+                <a href="https://cdn.conesoft.net/style.css?v=@Helpers.CalculateMD5("wwwroot/style.css")">
+                    https://cdn.conesoft.net/style.css?<b>v=@Helpers.CalculateMD5("wwwroot/style.css")</b>
+                </a>
+                <pre><code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://cdn.conesoft.net/style.css?v=@Helpers.CalculateMD5("wwwroot/style.css")"&gt;</code></pre>
+            </li>
+            <li>
+                link to the minifed stylesheet
+                <a href="https://cdn.conesoft.net/style.min.css?v=@Helpers.CalculateMD5("wwwroot/style.min.css")">
+                    https://cdn.conesoft.net/style.min.css?<b>v=@Helpers.CalculateMD5("wwwroot/style.min.css")</b>
+                </a>
+                <pre><code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://cdn.conesoft.net/style.min.css?v=@Helpers.CalculateMD5("wwwroot/style.min.css")"&gt;</code></pre>
+            </li>
+        </ul>
+    </section>
+
+    <link rel="stylesheet" href="https://unpkg.com/@@highlightjs/cdn-assets@11.6.0/styles/vs2015.min.css">
+    <script src="https://unpkg.com/@@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</conesoft-html>
