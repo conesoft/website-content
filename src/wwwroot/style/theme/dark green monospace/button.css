@@ -1,4 +1,4 @@
-﻿button, input[type=submit] {
+button, input[type=submit], nav a {
     background-color: #222;
     border: 0.25rem solid #444;
     padding: 0.25rem;
@@ -9,10 +9,10 @@
     transition: all 0.33s linear;
 }
 
-    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled) {
+    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled), nav a:hover:not(:disabled) {
         border-color: #DDD;
     }
 
-    button:disabled, input[type=submit]:disabled {
+    button:disabled, input[type=submit]:disabled, nav a:disabled {
         opacity: 0.7;
     }
