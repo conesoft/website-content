@@ -13,9 +13,9 @@
     <Content Remove="wwwroot\style\reset\display - grid - except within p and code.css" />
     <Content Remove="wwwroot\style\reset\html - body - height.css" />
     <Content Remove="wwwroot\style\theme\dark green monospace.css" />
-    <Content Remove="wwwroot\style\theme\dark green monospace\a.css" />
-    <Content Remove="wwwroot\style\theme\dark green monospace\body footer.css" />
-    <Content Remove="wwwroot\style\theme\dark green monospace\button.css" />
+    <Content Remove="wwwroot\style\theme\dark monospace\a.css" />
+    <Content Remove="wwwroot\style\theme\dark monospace\body footer.css" />
+    <Content Remove="wwwroot\style\theme\dark monospace\button.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +24,11 @@
     <None Include="wwwroot\style\reset\display - grid - except within p and code.css" />
     <None Include="wwwroot\style\reset\html - body - height.css" />
     <None Include="wwwroot\style\reset\contain.css" />
-    <None Include="wwwroot\style\theme\dark green monospace\progress.css" />
-    <None Include="wwwroot\style\theme\dark green monospace\body footer.css" />
-    <None Include="wwwroot\style\theme\dark green monospace\button.css" />
-    <None Include="wwwroot\style\theme\dark green monospace\a.css" />
-    <None Include="wwwroot\style\theme\dark green monospace\html.css" />
+    <None Include="wwwroot\style\theme\dark monospace\progress.css" />
+    <None Include="wwwroot\style\theme\dark monospace\body footer.css" />
+    <None Include="wwwroot\style\theme\dark monospace\button.css" />
+    <None Include="wwwroot\style\theme\dark monospace\a.css" />
+    <None Include="wwwroot\style\theme\dark monospace\html.css" />
   </ItemGroup>
 
 </Project>

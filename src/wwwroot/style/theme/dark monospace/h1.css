@@ -1,5 +1,5 @@
 ﻿h1 {
-    color: lightgreen;
+    color: var(--secondary);
     overflow: hidden;
 }
 

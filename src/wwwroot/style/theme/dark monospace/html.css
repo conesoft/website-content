@@ -1,0 +1,27 @@
+﻿:root {
+    --primary: #DDD;
+    --secondary: #EEE;
+}
+
+html {
+    background: black;
+    font-family: monospace;
+    font-size: 1.414rem;
+}
+
+* {
+    color: var(--primary)
+}
+svg, path {
+    fill: var(--primary)
+}
+
+*[green] {
+    --primary: green;
+    --secondary: lightgreen;
+}
+
+*[red] {
+    --primary: brown;
+    --secondary: lightcoral;
+}

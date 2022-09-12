@@ -7,12 +7,19 @@ button, input[type=submit], nav a {
     font-weight: inherit;
     font-family: inherit;
     transition: all 0.33s linear;
+    text-decoration-color: transparent;
+    text-align: center;
+    cursor: default;
+    opacity: initial;
+    align-items: center;
 }
 
     button:hover:not(:disabled), input[type=submit]:hover:not(:disabled), nav a:hover:not(:disabled) {
         border-color: #DDD;
+        text-decoration-color: transparent;
     }
 
     button:disabled, input[type=submit]:disabled, nav a:disabled {
         opacity: 0.7;
+        text-decoration-color: transparent;
     }

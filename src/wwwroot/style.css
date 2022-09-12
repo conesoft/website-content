@@ -80,7 +80,7 @@ footer {
 		opacity: 0.7;
 	}
 
-button, input[type=submit] {
+button, input[type=submit], nav a {
     background-color: #222;
     border: 0.25rem solid #444;
     padding: 0.25rem;
@@ -89,15 +89,23 @@ button, input[type=submit] {
     font-weight: inherit;
     font-family: inherit;
     transition: all 0.33s linear;
+    text-decoration-color: transparent;
+    text-align: center;
+    cursor: default;
+    opacity: initial;
+    align-items: center;
 }
 
-    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled) {
+    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled), nav a:hover:not(:disabled) {
         border-color: #DDD;
+        text-decoration-color: transparent;
     }
 
-    button:disabled, input[type=submit]:disabled {
+    button:disabled, input[type=submit]:disabled, nav a:disabled {
         opacity: 0.7;
+        text-decoration-color: transparent;
     }
+
 code {
     margin-top: 0.625rem;
     margin-bottom: 0.125rem;
@@ -115,7 +123,7 @@ pre code {
     background: rgba(0, 0, 0, 0.25) !important;
 }
 h1 {
-    color: lightgreen;
+    color: var(--secondary);
     overflow: hidden;
 }
 
@@ -126,11 +134,32 @@ header h1 {
     margin: 0 0 1rem 0;
 }
 
+:root {
+    --primary: #DDD;
+    --secondary: #EEE;
+}
+
 html {
     background: black;
-    color: green;
     font-family: monospace;
     font-size: 1.414rem;
+}
+
+* {
+    color: var(--primary)
+}
+svg, path {
+    fill: var(--primary)
+}
+
+*[green] {
+    --primary: green;
+    --secondary: lightgreen;
+}
+
+*[red] {
+    --primary: brown;
+    --secondary: lightcoral;
 }
 li {
     list-style-type: none;
@@ -157,6 +186,10 @@ li {
         li button:hover {
             opacity: 1;
         }
+nav {
+    grid-auto-flow: column
+}
+
 html {
     padding: 0.25rem;
 }

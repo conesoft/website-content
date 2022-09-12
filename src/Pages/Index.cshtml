@@ -1,25 +1,32 @@
 ﻿@page
 @using Conesoft.Website.CDN
 
+@{
+    var sheets = new Sheet[] {
+        new("https://cdn.conesoft.net/style.css", "wwwroot/style.css", "link to the uncompressed stylesheet"),
+        new("https://cdn.conesoft.net/style.min.css", "wwwroot/style.min.css", "link to the minifed stylesheet")
+    };
+}
+
 <!DOCTYPE html>
 <conesoft-html name="CDN" title="Conesoft CDN" url="https://cdn.conesoft.net" madeby="Conesoft">
     <section>
         <h1>Stylesheet</h1>
         <ul>
-            <li>
-                link to the uncompressed stylesheet
-                <a href="https://cdn.conesoft.net/style.css?v=@Helpers.CalculateMD5("wwwroot/style.css")">
-                    https://cdn.conesoft.net/style.css?<b>v=@Helpers.CalculateMD5("wwwroot/style.css")</b>
-                </a>
-                <pre><code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://cdn.conesoft.net/style.css?v=@Helpers.CalculateMD5("wwwroot/style.css")"&gt;</code></pre>
-            </li>
-            <li>
-                link to the minifed stylesheet
-                <a href="https://cdn.conesoft.net/style.min.css?v=@Helpers.CalculateMD5("wwwroot/style.min.css")">
-                    https://cdn.conesoft.net/style.min.css?<b>v=@Helpers.CalculateMD5("wwwroot/style.min.css")</b>
-                </a>
-                <pre><code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://cdn.conesoft.net/style.min.css?v=@Helpers.CalculateMD5("wwwroot/style.min.css")"&gt;</code></pre>
-            </li>
+            @foreach (var sheet in sheets)
+            {
+                <li>
+                    @sheet.Description
+                    <a href="@sheet.BaseUrl?v=@sheet.Md5">@sheet.BaseUrl?<b>v=@sheet.Md5</b></a>
+                    <pre><code class="language-html">&lt;link rel="stylesheet" type="test/css" href="@sheet.BaseUrl?v=@sheet.Md5"&gt;</code></pre>
+                    <button onclick="@Html.Raw(@$"navigator.clipboard.writeText('<link rel=\x22stylesheet\x22 type=\x22text/css\x22 href=\x22{sheet.BaseUrl}?v={sheet.Md5}\x22>')")">
+                        <svg viewBox='0 0 16 16' version='1.1'>
+                            <path fill-rule='evenodd' d='M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z'></path>
+                            <path fill-rule='evenodd' d='M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z'></path>
+                        </svg>
+                    </button>
+                </li>
+            }
         </ul>
     </section>
 
@@ -27,3 +34,10 @@
     <script src="https://unpkg.com/@@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </conesoft-html>
+
+@functions {
+    record Sheet(string BaseUrl, string CssFile, string Description)
+    {
+        public string Md5 { get; } = Helpers.CalculateMD5(CssFile);
+    }
+}
