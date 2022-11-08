@@ -1,13 +1,15 @@
 ﻿html {
-    padding: 0.25rem;
+    padding: 0;
 }
 
-@media (min-aspect-ratio: 1/1) {
-    body {
-        padding: 2rem 0;
-    }
-}
-
-li, h1, b, progress {
+li, td, tr td:first-of-type > *, h1, b, progress {
     padding: 0.5rem 0;
 }
+
+    li, h1, td:first-of-type, tr td:first-of-type > * {
+        padding-left: var(--sidemargin);
+    }
+
+    td {
+        padding-inline: 1rem;
+    }

@@ -1,9 +1,12 @@
 ﻿html {
     height: 100%;
     min-height: 100%;
+    app-region: drag;
 }
 
 body {
-    height: 100%;
+    height: calc(100% - env(titlebar-area-height,0));
     display: block;
+    margin-top: env(titlebar-area-height, 0);
+    app-region: no-drag;
 }

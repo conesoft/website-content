@@ -1,6 +1,8 @@
 ﻿:root {
     --primary: #DDD;
+    --default: var(--primary);
     --secondary: #EEE;
+    --sidemargin: 1rem;
 }
 
 html {
@@ -16,6 +18,11 @@ svg, path {
     fill: var(--primary)
 }
 
+*[default] {
+    --primary: #DDD;
+    --secondary: #EEE;
+}
+
 *[green] {
     --primary: green;
     --secondary: lightgreen;
@@ -24,4 +31,8 @@ svg, path {
 *[red] {
     --primary: brown;
     --secondary: lightcoral;
+}
+
+html[full-width] {
+    --sidemargin: 0;
 }

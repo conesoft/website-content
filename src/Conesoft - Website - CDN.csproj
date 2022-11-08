@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Conesoft.Website.CDN</RootNamespace>
@@ -13,7 +13,7 @@
     <Content Remove="wwwroot\style\reset\display - grid - except within p and code.css" />
     <Content Remove="wwwroot\style\reset\html - body - height.css" />
     <Content Remove="wwwroot\style\theme\dark green monospace.css" />
-    <Content Remove="wwwroot\style\theme\dark monospace\a.css" />
+    <Content Remove="wwwroot\style\theme\dark monospace\a, a[icon].css" />
     <Content Remove="wwwroot\style\theme\dark monospace\body footer.css" />
     <Content Remove="wwwroot\style\theme\dark monospace\button.css" />
   </ItemGroup>
@@ -27,7 +27,7 @@
     <None Include="wwwroot\style\theme\dark monospace\progress.css" />
     <None Include="wwwroot\style\theme\dark monospace\body footer.css" />
     <None Include="wwwroot\style\theme\dark monospace\button.css" />
-    <None Include="wwwroot\style\theme\dark monospace\a.css" />
+    <None Include="wwwroot\style\theme\dark monospace\a, a[icon].css" />
     <None Include="wwwroot\style\theme\dark monospace\html.css" />
   </ItemGroup>
 

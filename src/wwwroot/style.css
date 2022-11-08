@@ -30,11 +30,40 @@ p, p *, code, code * {
 html {
     height: 100%;
     min-height: 100%;
+    app-region: drag;
 }
 
 body {
-    height: 100%;
+    height: calc(100% - env(titlebar-area-height,0));
     display: block;
+    margin-top: env(titlebar-area-height, 0);
+    app-region: no-drag;
+}
+table, table * {
+    display: revert;
+    border-collapse: collapse;
+}
+
+td {
+    white-space: nowrap;
+}
+
+td:not(:first-of-type) {
+    text-align: right;
+}
+
+    tr td:first-of-type {
+        position: relative;
+    }
+
+tr td:first-of-type > * {
+    position: absolute;
+    width: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-overflow: ellipsis;
 }
 a, a * {
     display: inline;
@@ -52,6 +81,14 @@ a {
         opacity: 1;
     }
 
+    a[icon] {
+        scale: 2.5;
+        padding-inline: 0.25rem;
+        text-decoration: none;
+        display: inline-block;
+        filter: grayscale(1) brightness(1.1) contrast(5);
+        font-size: small;
+    }
 aside {
     white-space: nowrap;
     overflow: hidden;
@@ -80,7 +117,7 @@ footer {
 		opacity: 0.7;
 	}
 
-button, input[type=submit], nav a {
+button, input[type=submit] {
     background-color: #222;
     border: 0.25rem solid #444;
     padding: 0.25rem;
@@ -96,12 +133,12 @@ button, input[type=submit], nav a {
     align-items: center;
 }
 
-    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled), nav a:hover:not(:disabled) {
+    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled) {
         border-color: #DDD;
         text-decoration-color: transparent;
     }
 
-    button:disabled, input[type=submit]:disabled, nav a:disabled {
+    button:disabled, input[type=submit]:disabled {
         opacity: 0.7;
         text-decoration-color: transparent;
     }
@@ -131,12 +168,14 @@ header h1 {
     font-size: 2em;
     font-weight: bold;
     color: white;
-    margin: 0 0 1rem 0;
+    margin: 1.5rem 0;
+    grid-auto-flow: column;
 }
-
 :root {
     --primary: #DDD;
+    --default: var(--primary);
     --secondary: #EEE;
+    --sidemargin: 1rem;
 }
 
 html {
@@ -152,6 +191,11 @@ svg, path {
     fill: var(--primary)
 }
 
+*[default] {
+    --primary: #DDD;
+    --secondary: #EEE;
+}
+
 *[green] {
     --primary: green;
     --secondary: lightgreen;
@@ -161,16 +205,20 @@ svg, path {
     --primary: brown;
     --secondary: lightcoral;
 }
+
+html[full-width] {
+    --sidemargin: 0;
+}
 li {
     list-style-type: none;
     position: relative;
 }
 
-    li:nth-child(2n + 1) {
+    li:nth-child(2n + 1), tbody tr:nth-child(2n + 1) {
         background-color: #111;
     }
 
-    li:nth-child(2n) {
+    li:nth-child(2n), tbody tr:nth-child(2n) {
         background-color: #222;
     }
 
@@ -186,23 +234,62 @@ li {
         li button:hover {
             opacity: 1;
         }
+
+*[command-buttons] {
+    background-color: white;
+}
+*[command-buttons] * {
+    width: 1rem;
+}
 nav {
     grid-auto-flow: column
 }
 
-html {
-    padding: 0.25rem;
-}
-
-@media (min-aspect-ratio: 1/1) {
-    body {
-        padding: 2rem 0;
+    nav[breadcrumbs] {
+        grid-auto-columns: max-content;
+        grid-gap: 1rem
     }
+nav[breadcrumbs] {
+    display: inline;
+}
+    nav[breadcrumbs] * {
+        white-space: nowrap;
+    }
+
+    nav[breadcrumbs], nav[breadcrumbs] a:last-of-type, nav[breadcrumbs] a:first-of-type, nav[breadcrumbs] :not(a) {
+        color: var(--default) !important;
+    }
+
+        nav[breadcrumbs] a:not(a:last-of-type):not(a:first-of-type) {
+            color: var(--secondary) !important;
+            opacity: 0.4;
+        }
+
+        nav[breadcrumbs] a:hover:not(a:last-of-type):not(a:first-of-type) {
+            opacity: 0.6;
+        }
+
+    nav[breadcrumbs] a:first-of-type {
+        scale: 1.5;
+        translate: 0 -0.25rem;
+        padding-inline: 0.25rem;
+        text-decoration: none;
+    }
+html {
+    padding: 0;
 }
 
-li, h1, b, progress {
+li, td, tr td:first-of-type > *, h1, b, progress {
     padding: 0.5rem 0;
 }
+
+    li, h1, td:first-of-type, tr td:first-of-type > * {
+        padding-left: var(--sidemargin);
+    }
+
+    td {
+        padding-inline: 1rem;
+    }
 progress {
     height: 3rem;
 }

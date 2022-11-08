@@ -13,3 +13,12 @@ a {
         text-decoration-color: #DDD;
         opacity: 1;
     }
+
+    a[icon] {
+        scale: 2.5;
+        padding-inline: 0.25rem;
+        text-decoration: none;
+        display: inline-block;
+        filter: grayscale(1) brightness(1.1) contrast(5);
+        font-size: small;
+    }

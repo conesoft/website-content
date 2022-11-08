@@ -94,7 +94,7 @@ public class HtmlHeadTagHelper : TagHelper
     <footer>
         <p>&copy; {DateTime.Today.Year}
         <p>written by <a href=""https://davepermen.net"">davepermen</a>
-        <p>a <a href=""https://conesoft.net"">conesoft product</a>
+        <p>a <a href=""https://conesoft.net"">conesoft product</a> running on .NET {Environment.Version.Major}
     </footer>
 </body>
 ";

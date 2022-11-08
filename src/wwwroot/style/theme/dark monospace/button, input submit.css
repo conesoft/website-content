@@ -1,4 +1,4 @@
-button, input[type=submit], nav a {
+button, input[type=submit] {
     background-color: #222;
     border: 0.25rem solid #444;
     padding: 0.25rem;
@@ -14,12 +14,12 @@ button, input[type=submit], nav a {
     align-items: center;
 }
 
-    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled), nav a:hover:not(:disabled) {
+    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled) {
         border-color: #DDD;
         text-decoration-color: transparent;
     }
 
-    button:disabled, input[type=submit]:disabled, nav a:disabled {
+    button:disabled, input[type=submit]:disabled {
         opacity: 0.7;
         text-decoration-color: transparent;
     }
