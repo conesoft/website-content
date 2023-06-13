@@ -7,20 +7,11 @@ td {
     white-space: nowrap;
 }
 
-td:not(:first-of-type) {
-    text-align: right;
+td:first-of-type {
+    max-width: 0;
+    overflow:hidden;
 }
 
-    tr td:first-of-type {
-        position: relative;
-    }
-
-tr td:first-of-type > * {
-    position: absolute;
-    width: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    text-overflow: ellipsis;
+td:not(:first-of-type) {
+    text-align: right;
 }

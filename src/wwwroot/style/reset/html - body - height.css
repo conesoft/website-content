@@ -4,9 +4,13 @@
     app-region: drag;
 }
 
+    html:not(:has(:fullscreen)) {
+        scrollbar-gutter: stable;
+    }
+
 body {
     height: calc(100% - env(titlebar-area-height,0));
-    display: block;
     margin-top: env(titlebar-area-height, 0);
     app-region: no-drag;
+    grid-template-rows: auto auto 1fr;
 }

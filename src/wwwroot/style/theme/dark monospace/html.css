@@ -9,6 +9,7 @@ html {
     background: black;
     font-family: monospace;
     font-size: 1.414rem;
+    color-scheme: dark light;
 }
 
 * {

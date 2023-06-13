@@ -1,16 +1,46 @@
-﻿body {
-	padding-bottom: 4rem;
+﻿body > *:has(+ footer) {
+    padding-bottom: 3rem;
 }
 
 footer {
-	text-align: center;
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: black;
+    position: sticky;
+    bottom: 0;
+    align-self: end;
+    background: #000A;
+    opacity: 0;
+    animation: footer-fadein 1.666s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    grid-auto-flow: row;
+    grid-template-columns: auto min-content min-content;
+    height: 2rem;
+    backdrop-filter: blur(0.25rem);
+    cursor: default;
+    overflow: hidden;
 }
 
-	footer p {
-		opacity: 0.7;
-	}
+    footer > * {
+        text-align: right;
+        line-height: 2rem;
+        white-space: nowrap;
+        opacity: 0.5;
+    }
+
+        footer > *:not(:first-of-type)::before {
+            content: "|\00a0";
+            color: white;
+        }
+
+        footer > *::after {
+            content: "\00a0";
+        }
+
+@keyframes footer-fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

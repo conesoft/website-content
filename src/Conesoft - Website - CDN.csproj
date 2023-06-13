@@ -7,28 +7,4 @@
     <RootNamespace>Conesoft.Website.CDN</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="bundleconfig.json" />
-    <Content Remove="wwwroot\style\contain.css" />
-    <Content Remove="wwwroot\style\reset\display - grid - except within p and code.css" />
-    <Content Remove="wwwroot\style\reset\html - body - height.css" />
-    <Content Remove="wwwroot\style\theme\dark green monospace.css" />
-    <Content Remove="wwwroot\style\theme\dark monospace\a, a[icon].css" />
-    <Content Remove="wwwroot\style\theme\dark monospace\body footer.css" />
-    <Content Remove="wwwroot\style\theme\dark monospace\button.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="bundleconfig.json" />
-    <None Include="Properties\PublishProfiles\Deploy.pubxml.user" />
-    <None Include="wwwroot\style\reset\display - grid - except within p and code.css" />
-    <None Include="wwwroot\style\reset\html - body - height.css" />
-    <None Include="wwwroot\style\reset\contain.css" />
-    <None Include="wwwroot\style\theme\dark monospace\progress.css" />
-    <None Include="wwwroot\style\theme\dark monospace\body footer.css" />
-    <None Include="wwwroot\style\theme\dark monospace\button.css" />
-    <None Include="wwwroot\style\theme\dark monospace\a, a[icon].css" />
-    <None Include="wwwroot\style\theme\dark monospace\html.css" />
-  </ItemGroup>
-
 </Project>

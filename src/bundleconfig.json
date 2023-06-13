@@ -4,5 +4,11 @@
     "inputFiles": [
       "wwwroot/style/**/*.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/pink-style.css",
+    "inputFiles": [
+      "wwwroot/pink-style/**/*.css"
+    ]
   }
 ]

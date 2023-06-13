@@ -2,14 +2,23 @@
     padding: 0;
 }
 
-li, td, tr td:first-of-type > *, h1, b, progress {
+li, td, tr td:first-of-type > *, h1, b {
     padding: 0.5rem 0;
 }
 
-    li, h1, td:first-of-type, tr td:first-of-type > * {
+    li, h1, tr td:first-of-type > *, nav > *:first-of-type {
         padding-left: var(--sidemargin);
     }
+    li, h1, tr td:last-of-type > *, nav > *:last-of-type {
+        padding-right: var(--sidemargin);
+    }
 
-    td {
+    td:not(:first-of-type):not(:last-of-type) {
         padding-inline: 1rem;
+    }
+    td:first-of-type {
+        padding-right: 1rem;
+    }
+    td:last-of-type {
+        padding-left: 1rem;
     }

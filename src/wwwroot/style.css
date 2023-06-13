@@ -1,19 +1,22 @@
 * {
-    contain: content;
+    -contain: content;
 }
 
-html {
-    contain: none;
+html, body {
+    contain: inherit;
 }
-
-* {
+*, *::before, *::after {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	border-radius: 0;
+	border: none;
 	box-sizing: border-box;
 	font-weight: 100;
 	font-size: inherit;
+	background: inherit;
+	line-break: anywhere;
+	outline: none;
 }
 
 * {
@@ -27,17 +30,27 @@ head, script {
 p, p *, code, code * {
     display: inline;
 }
+[grid-auto-flow-column] {
+    grid-auto-flow: column;
+}
+[grid-auto-flow-row] {
+    grid-auto-flow: row;
+}
 html {
     height: 100%;
     min-height: 100%;
     app-region: drag;
 }
 
+    html:not(:has(:fullscreen)) {
+        scrollbar-gutter: stable;
+    }
+
 body {
     height: calc(100% - env(titlebar-area-height,0));
-    display: block;
     margin-top: env(titlebar-area-height, 0);
     app-region: no-drag;
+    grid-template-rows: auto auto 1fr;
 }
 table, table * {
     display: revert;
@@ -48,23 +61,15 @@ td {
     white-space: nowrap;
 }
 
+td:first-of-type {
+    max-width: 0;
+    overflow:hidden;
+}
+
 td:not(:first-of-type) {
     text-align: right;
 }
 
-    tr td:first-of-type {
-        position: relative;
-    }
-
-tr td:first-of-type > * {
-    position: absolute;
-    width: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    text-overflow: ellipsis;
-}
 a, a * {
     display: inline;
 }
@@ -95,27 +100,64 @@ aside {
     text-overflow: ellipsis;
 }
 
+audio {
+    min-width: 15rem;
+    opacity: 0.5;
+    margin: -0.75rem;
+    padding: 0.5rem;
+}
+
 b {
     color: lightgreen;
     font-weight: 100;
 }
 
-body {
-	padding-bottom: 4rem;
+body > *:has(+ footer) {
+    padding-bottom: 3rem;
 }
 
 footer {
-	text-align: center;
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: black;
+    position: sticky;
+    bottom: 0;
+    align-self: end;
+    background: #000A;
+    opacity: 0;
+    animation: footer-fadein 1.666s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    grid-auto-flow: row;
+    grid-template-columns: auto min-content min-content;
+    height: 2rem;
+    backdrop-filter: blur(0.25rem);
+    cursor: default;
+    overflow: hidden;
 }
 
-	footer p {
-		opacity: 0.7;
-	}
+    footer > * {
+        text-align: right;
+        line-height: 2rem;
+        white-space: nowrap;
+        opacity: 0.5;
+    }
+
+        footer > *:not(:first-of-type)::before {
+            content: "|\00a0";
+            color: white;
+        }
+
+        footer > *::after {
+            content: "\00a0";
+        }
+
+@keyframes footer-fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 button, input[type=submit] {
     background-color: #222;
@@ -159,6 +201,18 @@ pre code {
     opacity: 1;
     background: rgba(0, 0, 0, 0.25) !important;
 }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 1.5rem 0;
+    backdrop-filter: blur(10px);
+    background-color: rgb(0, 0, 0, 0.15);
+    width: auto;
+    /*text-shadow: 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black;*/
+    box-shadow: 0 0 1.5rem black;
+}
+
 h1 {
     color: var(--secondary);
     overflow: hidden;
@@ -168,8 +222,13 @@ header h1 {
     font-size: 2em;
     font-weight: bold;
     color: white;
-    margin: 1.5rem 0;
     grid-auto-flow: column;
+    place-self: start;
+    background-color: transparent;
+}
+
+h1:focus-visible {
+    outline: none;
 }
 :root {
     --primary: #DDD;
@@ -182,6 +241,7 @@ html {
     background: black;
     font-family: monospace;
     font-size: 1.414rem;
+    color-scheme: dark light;
 }
 
 * {
@@ -212,7 +272,12 @@ html[full-width] {
 li {
     list-style-type: none;
     position: relative;
+    grid-auto-flow: column;
 }
+
+    li *:last-child:not(:first-child) {
+        text-align: right;
+    }
 
     li:nth-child(2n + 1), tbody tr:nth-child(2n + 1) {
         background-color: #111;
@@ -251,6 +316,8 @@ nav {
     }
 nav[breadcrumbs] {
     display: inline;
+    overflow: hidden;
+    text-overflow: clip;
 }
     nav[breadcrumbs] * {
         white-space: nowrap;
@@ -279,17 +346,38 @@ html {
     padding: 0;
 }
 
-li, td, tr td:first-of-type > *, h1, b, progress {
+li, td, tr td:first-of-type > *, h1, b {
     padding: 0.5rem 0;
 }
 
-    li, h1, td:first-of-type, tr td:first-of-type > * {
+    li, h1, tr td:first-of-type > *, nav > *:first-of-type {
         padding-left: var(--sidemargin);
     }
+    li, h1, tr td:last-of-type > *, nav > *:last-of-type {
+        padding-right: var(--sidemargin);
+    }
 
-    td {
+    td:not(:first-of-type):not(:last-of-type) {
         padding-inline: 1rem;
     }
+    td:first-of-type {
+        padding-right: 1rem;
+    }
+    td:last-of-type {
+        padding-left: 1rem;
+    }
 progress {
-    height: 3rem;
+    height: 2rem;
+    margin: .5rem 0;
+}
+
+/* firefox fixes */
+
+progress {
+    background: gray;
+    border: inherit;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--primary);
 }

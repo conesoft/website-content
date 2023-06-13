@@ -1,5 +1,7 @@
 nav[breadcrumbs] {
     display: inline;
+    overflow: hidden;
+    text-overflow: clip;
 }
     nav[breadcrumbs] * {
         white-space: nowrap;

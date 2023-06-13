@@ -1,7 +1,12 @@
 ﻿li {
     list-style-type: none;
     position: relative;
+    grid-auto-flow: column;
 }
+
+    li *:last-child:not(:first-child) {
+        text-align: right;
+    }
 
     li:nth-child(2n + 1), tbody tr:nth-child(2n + 1) {
         background-color: #111;

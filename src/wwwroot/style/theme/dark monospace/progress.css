@@ -1,3 +1,15 @@
 ﻿progress {
-    height: 3rem;
+    height: 2rem;
+    margin: .5rem 0;
+}
+
+/* firefox fixes */
+
+progress {
+    background: gray;
+    border: inherit;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--primary);
 }
