@@ -1,3 +1,23 @@
+#components-reconnect-modal {
+    background-color: transparent !important;
+    place-content: center center !important;
+    display: grid !important;
+    gap: 1rem;
+    opacity: 1 !important;
+}
+
+    #components-reconnect-modal > * {
+        background-color: #000;
+        padding: 1rem;
+        box-shadow: 0 0 1rem rgba(255,255,255,.1), 0 1rem 10rem rgba(255,255,255,.1);
+        margin: 0 !important;
+        border-radius: 100rem;
+        display: inline;
+    }
+
+    #components-reconnect-modal > *:not(:first-child) {
+        display: none !important;
+    }
 * {
     -contain: content;
 }
@@ -30,16 +50,24 @@ head, script {
 p, p *, code, code * {
     display: inline;
 }
-[grid-auto-flow-column] {
+[grid-auto-flow-column], [horizontal] {
     grid-auto-flow: column;
 }
-[grid-auto-flow-row] {
+
+[horizontal] > *:last-child {
+    place-self: stretch end;
+}
+
+
+[grid-auto-flow-row], [vertical] {
     grid-auto-flow: row;
+    place-content: start stretch;
 }
 html {
     height: 100%;
     min-height: 100%;
     app-region: drag;
+    user-select: none;
 }
 
     html:not(:has(:fullscreen)) {
@@ -107,18 +135,23 @@ audio {
     padding: 0.5rem;
 }
 
-b {
+b, i {
     color: lightgreen;
     font-weight: 100;
 }
 
+i {
+    opacity: 0.5;
+    min-height: 2rem;
+}
 body > *:has(+ footer) {
     padding-bottom: 3rem;
 }
 
 footer {
     position: sticky;
-    bottom: 0;
+    margin: 5rem 0 0;
+    bottom: -1px;
     align-self: end;
     background: #000A;
     opacity: 0;
@@ -159,10 +192,54 @@ footer {
     }
 }
 
-button, input[type=submit] {
+code.hljs {
+    padding: 0 !important;
+}
+
+.hljs, .hljs * {
+    background: transparent !important;
+}
+form {
+}
+
+
+
+input {
+    font: inherit;
+    min-height: 2rem;
+    background: #111;
+    color: #BBB;
+    text-align: center;
+}
+
+    input::placeholder {
+        opacity: 0.5;
+    }
+
+    input:read-only {
+        background-color: transparent;
+    }
+
+
+
+label {
+    text-align: center;
+    line-break: normal;
+    text-wrap: balance;
+    display: block;
+    line-height: 1rem;
+    padding-block: 0.5rem;
+    color: var(--primary);
+}
+
+    label > *:first-of-type {
+        margin-top: 0.5rem;
+    }
+
+
+
+:is(button, input[type=submit]) {
     background-color: #222;
-    border: 0.25rem solid #444;
-    padding: 0.25rem;
     color: #DDD;
     font-size: inherit;
     font-weight: inherit;
@@ -173,34 +250,24 @@ button, input[type=submit] {
     cursor: default;
     opacity: initial;
     align-items: center;
+    min-height: 2rem;
 }
 
-    button:hover:not(:disabled), input[type=submit]:hover:not(:disabled) {
+    :is(button, input[type=submit]):hover:not(:disabled) {
         border-color: #DDD;
         text-decoration-color: transparent;
+        filter: invert();
     }
 
-    button:disabled, input[type=submit]:disabled {
+    :is(button, input[type=submit]):disabled {
         opacity: 0.7;
         text-decoration-color: transparent;
     }
 
-code {
-    margin-top: 0.625rem;
-    margin-bottom: 0.125rem;
-    padding-top: 0.875rem;
-    padding-bottom: 0.875rem;
-    background: rgba(0, 0, 0, 0.25);
-    width: auto;
-    color: white;
-    opacity: 0.8;
-}
+    :is(button, input[type=submit]) svg {
+        max-width: 2rem;
+    }
 
-pre code {
-    color: black;
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.25) !important;
-}
 header {
     position: sticky;
     top: 0;
@@ -215,7 +282,13 @@ header {
 
 h1 {
     color: var(--secondary);
+    line-break: normal;
+    text-wrap: balance;
     overflow: hidden;
+}
+
+[centered] h1 {
+    text-align: center;
 }
 
 header h1 {
@@ -275,7 +348,7 @@ li {
     grid-auto-flow: column;
 }
 
-    li *:last-child:not(:first-child) {
+    li > *:last-child:not(:first-child) {
         text-align: right;
     }
 
@@ -288,12 +361,12 @@ li {
     }
 
     li button {
-        position: absolute;
-        right: 0.5rem;
-        top: 0.5rem;
-        bottom: 0.5rem;
-        width: 4rem;
-        opacity: 0.3;
+        padding-inline: 1rem;
+        aspect-ratio: 1;
+        opacity: .3;
+        mix-blend-mode: screen;
+        font-size: 2rem;
+        translate: var(--sidemargin) 0rem;
     }
 
         li button:hover {
@@ -305,6 +378,27 @@ li {
 }
 *[command-buttons] * {
     width: 1rem;
+}
+body:has(main[centered]) {
+    place-self: stretch center;
+    max-width: 60rem;
+}
+
+body:has(main[centered][thin]) {
+    max-width: 20rem;
+}
+
+main {
+    grid-gap: 2rem;
+}
+
+main > section {
+    grid-gap: 1rem;
+}
+
+main > section > h2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
 }
 nav {
     grid-auto-flow: column
@@ -347,10 +441,11 @@ html {
 }
 
 li, td, tr td:first-of-type > *, h1, b {
-    padding: 0.5rem 0;
+    min-height: 2rem;
+    place-content: center start;
 }
 
-    li, h1, tr td:first-of-type > *, nav > *:first-of-type {
+    li, h1, tr td:first-of-type > *, nav > *:first-of-type, main > section > h2 {
         padding-left: var(--sidemargin);
     }
     li, h1, tr td:last-of-type > *, nav > *:last-of-type {
@@ -365,6 +460,40 @@ li, td, tr td:first-of-type > *, h1, b {
     }
     td:last-of-type {
         padding-left: 1rem;
+    }
+[pretty-card] {
+    border-radius: 1rem;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+}
+
+*:has(> [pretty-card]), [pretty-card] {
+    gap: 1rem;
+}
+
+[pretty-card] *:not(:only-child) {
+    gap: 1rem;
+}
+
+[pretty-card] h2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+    [pretty-card] > section[vertical] {
+        padding: 1rem;
+        padding-inline-end: 0;
+    }
+
+    [pretty-card] > section[horizontal] {
+        padding: 1rem;
+        padding-block-end: 0;
+    }
+
+    [pretty-card] button {
+        border-radius: 0 1rem 1rem 0;
+        translate: 0rem;
     }
 progress {
     height: 2rem;

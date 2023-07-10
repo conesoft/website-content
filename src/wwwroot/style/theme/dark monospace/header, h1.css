@@ -12,7 +12,13 @@
 
 h1 {
     color: var(--secondary);
+    line-break: normal;
+    text-wrap: balance;
     overflow: hidden;
+}
+
+[centered] h1 {
+    text-align: center;
 }
 
 header h1 {

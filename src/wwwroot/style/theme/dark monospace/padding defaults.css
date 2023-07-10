@@ -3,10 +3,11 @@
 }
 
 li, td, tr td:first-of-type > *, h1, b {
-    padding: 0.5rem 0;
+    min-height: 2rem;
+    place-content: center start;
 }
 
-    li, h1, tr td:first-of-type > *, nav > *:first-of-type {
+    li, h1, tr td:first-of-type > *, nav > *:first-of-type, main > section > h2 {
         padding-left: var(--sidemargin);
     }
     li, h1, tr td:last-of-type > *, nav > *:last-of-type {

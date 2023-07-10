@@ -1,0 +1,9 @@
+﻿b, i {
+    color: lightgreen;
+    font-weight: 100;
+}
+
+i {
+    opacity: 0.5;
+    min-height: 2rem;
+}

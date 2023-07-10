@@ -4,7 +4,7 @@
     grid-auto-flow: column;
 }
 
-    li *:last-child:not(:first-child) {
+    li > *:last-child:not(:first-child) {
         text-align: right;
     }
 
@@ -17,12 +17,12 @@
     }
 
     li button {
-        position: absolute;
-        right: 0.5rem;
-        top: 0.5rem;
-        bottom: 0.5rem;
-        width: 4rem;
-        opacity: 0.3;
+        padding-inline: 1rem;
+        aspect-ratio: 1;
+        opacity: .3;
+        mix-blend-mode: screen;
+        font-size: 2rem;
+        translate: var(--sidemargin) 0rem;
     }
 
         li button:hover {

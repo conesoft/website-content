@@ -4,7 +4,8 @@
 
 footer {
     position: sticky;
-    bottom: 0;
+    margin: 5rem 0 0;
+    bottom: -1px;
     align-self: end;
     background: #000A;
     opacity: 0;

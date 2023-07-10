@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using System.Security.Cryptography;
 
 namespace Conesoft.Website.CDN.TagHelpers;
 

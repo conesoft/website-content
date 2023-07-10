@@ -1,0 +1,34 @@
+﻿[pretty-card] {
+    border-radius: 1rem;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+}
+
+*:has(> [pretty-card]), [pretty-card] {
+    gap: 1rem;
+}
+
+[pretty-card] *:not(:only-child) {
+    gap: 1rem;
+}
+
+[pretty-card] h2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+    [pretty-card] > section[vertical] {
+        padding: 1rem;
+        padding-inline-end: 0;
+    }
+
+    [pretty-card] > section[horizontal] {
+        padding: 1rem;
+        padding-block-end: 0;
+    }
+
+    [pretty-card] button {
+        border-radius: 0 1rem 1rem 0;
+        translate: 0rem;
+    }

@@ -1,6 +1,13 @@
-﻿[grid-auto-flow-column] {
+﻿[grid-auto-flow-column], [horizontal] {
     grid-auto-flow: column;
 }
-[grid-auto-flow-row] {
+
+[horizontal] > *:last-child {
+    place-self: stretch end;
+}
+
+
+[grid-auto-flow-row], [vertical] {
     grid-auto-flow: row;
+    place-content: start stretch;
 }

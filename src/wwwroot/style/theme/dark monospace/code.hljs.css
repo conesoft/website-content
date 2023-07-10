@@ -1,0 +1,7 @@
+﻿code.hljs {
+    padding: 0 !important;
+}
+
+.hljs, .hljs * {
+    background: transparent !important;
+}
