@@ -11,6 +11,10 @@ a {
     color: inherit;
 }
 
+input, button {
+    font-family: inherit;
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         --color: black;
