@@ -1,5 +1,6 @@
 ﻿[grid-auto-flow-column], [horizontal] {
     grid-auto-flow: column;
+    grid-auto-columns: 1fr;
 }
 
 [horizontal] > *:last-child {

@@ -21,7 +21,7 @@ input {
 
 
 
-label {
+:is(label, fieldset > legend) {
     text-align: center;
     line-break: normal;
     text-wrap: balance;
@@ -31,7 +31,7 @@ label {
     color: var(--primary);
 }
 
-    label > *:first-of-type {
+    :is(label, fieldset > legend) > *:first-of-type {
         margin-top: 0.5rem;
     }
 

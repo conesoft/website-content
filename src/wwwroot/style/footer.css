@@ -1,0 +1,21 @@
+﻿footer {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 1ch;
+    opacity: 0.8;
+    height: 2rem;
+    line-height: 2;
+    padding-inline: 1ch;
+    position: sticky;
+    bottom: 0;
+}
+
+    footer * {
+        display: inline;
+        white-space: nowrap;
+    }
+
+        footer *:nth-last-of-type(2) {
+            flex-grow: 1;
+        }

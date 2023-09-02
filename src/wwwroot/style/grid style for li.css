@@ -1,0 +1,13 @@
+﻿li {
+    display: grid;
+
+    min-height: 2rem;
+    place-content: center;
+}
+
+    li:nth-of-type(n+2) {
+        background-color: #222;
+    }
+    li:nth-of-type(2n+1) {
+        background-color: #111;
+    }

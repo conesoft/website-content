@@ -1,7 +1,7 @@
-﻿* {
-    -contain: content;
+﻿/** {
+    contain: content;
 }
 
 html, body {
     contain: inherit;
-}
+}*/

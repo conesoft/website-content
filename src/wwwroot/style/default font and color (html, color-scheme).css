@@ -1,0 +1,25 @@
+﻿html {
+    font-family: monospace;
+    font-size: 1.414rem;
+    color-scheme: dark light;
+
+    background-color: var(--background-color);
+    color: var(--color);
+}
+
+a {
+    color: inherit;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color: black;
+        --background-color: white;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: white;
+        --background-color: black;
+    }
+}

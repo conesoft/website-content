@@ -1,4 +1,4 @@
-﻿* {
+﻿*:not(head, script, style, body) {
     display: grid;
 }
 

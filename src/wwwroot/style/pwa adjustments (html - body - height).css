@@ -1,0 +1,11 @@
+﻿html {
+    height: 100%;
+    app-region: drag;
+    user-select: none;
+}
+
+body {
+    height: calc(100% - env(titlebar-area-height, 0px));
+    margin-top: env(titlebar-area-height, 0px);
+    app-region: no-drag;
+}

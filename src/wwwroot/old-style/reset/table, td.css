@@ -1,4 +1,4 @@
-﻿table, table * {
+﻿/*table, table * {
     display: revert;
     border-collapse: collapse;
 }
@@ -15,3 +15,4 @@ td:first-of-type {
 td:not(:first-of-type) {
     text-align: right;
 }
+*/

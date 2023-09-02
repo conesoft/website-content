@@ -1,0 +1,20 @@
+﻿a {
+    text-decoration-color: transparent;
+    opacity: 0.8;
+    transition: opacity 0.33s linear, text-decoration-color 0.33s linear;
+    line-break: anywhere;
+}
+
+    a:hover {
+        text-decoration-color: currentcolor;
+        opacity: 1;
+    }
+
+    a[icon] {
+        scale: 2.5;
+        padding-inline: 0.25rem;
+        text-decoration: none;
+        display: inline-block;
+        filter: grayscale(1) brightness(1.1) contrast(5);
+        font-size: small;
+    }
