@@ -80,6 +80,7 @@ input, button {
 }
 
 footer {
+    place-self: end auto;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
@@ -101,15 +102,85 @@ footer {
             flex-grow: 1;
         }
 
+form, form * {
+    display: grid;
+}
+
+
+
+input {
+    font: inherit;
+    min-height: 2rem;
+    background: #111;
+    color: #BBB;
+    text-align: center;
+}
+
+    input::placeholder {
+        opacity: 0.5;
+    }
+
+    input:read-only {
+        background-color: transparent;
+    }
+
+
+
+:is(label, fieldset > legend) {
+    text-align: center;
+    line-break: normal;
+    text-wrap: balance;
+    display: block;
+    line-height: 1rem;
+    padding-block: 0.5rem;
+    color: var(--primary);
+}
+
+    :is(label, fieldset > legend) > *:first-of-type {
+        margin-top: 0.5rem;
+    }
+
+
+
+:is(button, input[type=submit]) {
+    background-color: #222;
+    color: #DDD;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    transition: all 0.33s linear;
+    text-decoration-color: transparent;
+    text-align: center;
+    cursor: default;
+    opacity: initial;
+    align-items: center;
+    min-height: 2rem;
+}
+
+    :is(button, input[type=submit]):hover:not(:disabled) {
+        border-color: #DDD;
+        text-decoration-color: transparent;
+        filter: invert();
+    }
+
+    :is(button, input[type=submit]):disabled {
+        opacity: 0.7;
+        text-decoration-color: transparent;
+    }
+
+    :is(button, input[type=submit]) svg {
+        max-width: 2rem;
+    }
+
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
-li {
+ul, li {
     display: grid;
 
     min-height: 2rem;
-    place-content: center;
+    place-content: center stretch;
 }
 
     li:nth-of-type(n+2) {
@@ -118,69 +189,125 @@ li {
     li:nth-of-type(2n+1) {
         background-color: #111;
     }
+[horizontal] {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+
+
+[vertical] {
+    grid-auto-flow: row;
+    place-content: start stretch;
+}
 header {
     position: sticky;
     top: 0;
+    left: 0;
     z-index: 1;
-    margin: 1.5rem 0;
     backdrop-filter: blur(10px);
     background-color: rgb(0, 0, 0, 0.15);
-    width: auto;
-    /*text-shadow: 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black, 0 0 5rem black;*/
-    box-shadow: 0 0 1.5rem black;
+    display: grid;
+    grid-template-columns: 1fr auto calc(100% - env(titlebar-area-width));
+    place-items: start;
+    app-region: drag;
 }
 
-h1 {
+header > nav > *, header > :not(nav) {
+    app-region: no-drag;
+}
+
+header nav {
     color: var(--secondary);
     line-break: normal;
     text-wrap: balance;
     overflow: hidden;
-}
-
-[centered] h1 {
-    text-align: center;
-}
-
-header h1 {
     font-size: 2em;
     font-weight: bold;
     color: white;
     grid-auto-flow: column;
-    place-self: start;
     background-color: transparent;
 }
-
-h1:focus-visible {
-    outline: none;
+body:has(main[centered]) {
+    place-self: stretch center;
+    max-width: 60rem;
 }
-nav[breadcrumbs] {
+
+body:has(main[centered][thin]) {
+    max-width: 20rem;
+}
+
+main {
+    grid-gap: 2rem;
+}
+
+main > section {
+    grid-gap: 1rem;
+}
+
+main {
+    overflow: hidden;
+    padding-bottom: 2rem; /* for footer */
+}
+
+main > section:only-child {
+    overflow: auto;
+    height: 100%;
+}
+nav.breadcrumbs {
     display: inline;
     overflow: hidden;
     text-overflow: clip;
 }
-    nav[breadcrumbs] * {
+
+    nav.breadcrumbs * {
         white-space: nowrap;
     }
 
-    nav[breadcrumbs], nav[breadcrumbs] a:last-of-type, nav[breadcrumbs] a:first-of-type, nav[breadcrumbs] :not(a) {
+    nav.breadcrumbs, nav.breadcrumbs a:last-of-type, nav.breadcrumbs a:first-of-type, nav.breadcrumbs :not(a) {
         color: var(--default) !important;
     }
 
-        nav[breadcrumbs] a:not(a:last-of-type):not(a:first-of-type) {
+        nav.breadcrumbs a:not(a:last-of-type):not(a:first-of-type) {
             color: var(--secondary) !important;
             opacity: 0.4;
         }
 
-        nav[breadcrumbs] a:hover:not(a:last-of-type):not(a:first-of-type) {
+        nav.breadcrumbs a:hover:not(a:last-of-type):not(a:first-of-type) {
             opacity: 0.6;
         }
 
-    nav[breadcrumbs] a:first-of-type {
-        scale: 1.5;
-        translate: 0 -0.25rem;
-        padding-inline: 0.25rem;
+        nav.breadcrumbs a:first-of-type {
+            scale: 1.5;
+            translate: 0 -0.25rem;
+            padding-inline: 0.25rem;
+            text-decoration: none;
+        }
+
+nav:not(.breadcrumbs) h1 {
+    text-wrap: initial;
+}
+
+nav:not(.breadcrumbs) a {
+    line-break: auto;
+}
+
+    nav:not(.breadcrumbs) a:first-of-type {
         text-decoration: none;
     }
+
+    nav:not(.breadcrumbs) a:not(.active):not(:first-of-type) {
+        color: var(--secondary) !important;
+        opacity: 0.4;
+    }
+
+    nav:not(.breadcrumbs) a:hover:not(.active):not(:first-of-type) {
+        opacity: 0.6;
+    }
+
+    nav:not(.breadcrumbs) a.active, nav:not(.breadcrumbs) a:first-of-type {
+        color: var(--default) !important;
+    }
+
 html {
     height: 100%;
     app-region: drag;
@@ -188,7 +315,8 @@ html {
 }
 
 body {
-    height: calc(100% - env(titlebar-area-height, 0px));
-    margin-top: env(titlebar-area-height, 0px);
+    /*height: calc(100% - env(titlebar-area-height, 0px));*/
+    /*margin-top: env(titlebar-area-height, 0px);*/
+    min-height: 100%;
     app-region: no-drag;
 }

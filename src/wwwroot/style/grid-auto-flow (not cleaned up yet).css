@@ -1,0 +1,10 @@
+﻿[horizontal] {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+
+
+[vertical] {
+    grid-auto-flow: row;
+    place-content: start stretch;
+}

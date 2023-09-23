@@ -1,8 +1,8 @@
-﻿li {
+﻿ul, li {
     display: grid;
 
     min-height: 2rem;
-    place-content: center;
+    place-content: center stretch;
 }
 
     li:nth-of-type(n+2) {

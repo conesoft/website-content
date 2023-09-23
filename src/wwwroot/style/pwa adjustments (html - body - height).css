@@ -5,7 +5,8 @@
 }
 
 body {
-    height: calc(100% - env(titlebar-area-height, 0px));
-    margin-top: env(titlebar-area-height, 0px);
+    /*height: calc(100% - env(titlebar-area-height, 0px));*/
+    /*margin-top: env(titlebar-area-height, 0px);*/
+    min-height: 100%;
     app-region: no-drag;
 }
