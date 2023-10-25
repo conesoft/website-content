@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="20">
+
+    <defs>
+        <svg id="forward" fill="currentColor">
+            <path d="M0,0 V16 L8,8 Z  M8,0 V16 L16,8 Z" />
+        </svg>
+
+        <svg id="backward" fill="currentColor">
+            <path d="M8,0 V16 L0,8 Z  M16,0 V16 L8,8 Z" />
+        </svg>
+
+        <svg id="mute" fill="currentColor">
+            <path d="M0,5 V11 H5 L8,14 V2 L5,5 Z    M10,14 A8.4,8.4 0 0 0 10,2 L9,3 A7.0,7.0 10 0 1 9,13 Z  M12,16 A11.3,11.3 0 0 0 12,0 L11,1 A9.8,9.8 10 0 1 11,15 Z" />
+        </svg>
+
+        <svg id="unmute" fill="currentColor">
+            <path d="M0,5 V11 H5 L8,14 V2 L5,5 Z  M10,5 9,6 L11,8 L9,10 L10,11 L12,9 L14,11 L15,10 L13,8 L15,6 L14,5 L12,7 Z" />
+        </svg>
+
+        <svg id="play" fill="currentColor">
+            <path d="M3.4,16 L16,8 L3.4,0 Z" />
+        </svg>
+
+        <svg id="pause" fill="currentColor">
+            <path d="M2,0 V16 h4 V0 Z  M10,0 V16 h4 V0 Z" />
+        </svg>
+
+        <svg id="enter-fullscreen" fill="currentColor">
+            <path d="M0,0 V6 H2 V2 H6 V0 Z  M16,0 V6 H14 V2 H10 V0 Z  M0,16 V10 H2 V14 H6 V16 Z  M16,16 V10 H14 V14 H10 V16 Z" />
+        </svg>
+
+        <svg id="leave-fullscreen" fill="currentColor">
+            <path d="M0,4 V6 H6 V0 H4 V4 Z  M16,4 V6 H10 V0 H12 V4 Z  M0,12 V10 H6 V16 H4 V12 Z  M16,12 V10 H10 V16 H12 V12 Z" />        </svg>
+    </defs>
+
+    <svg x="2" y="2">
+        <use x="0" href="#forward" />
+        <use x="20" href="#backward" />
+        <use x="40" href="#mute" />
+        <use x="60" href="#unmute" />
+        <use x="80" href="#play" />
+        <use x="100" href="#pause" />
+        <use x="120" href="#enter-fullscreen" />
+        <use x="140" href="#leave-fullscreen" />
+    </svg>
+
+</svg>
