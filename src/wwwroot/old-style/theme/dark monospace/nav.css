@@ -1,8 +1,0 @@
-nav {
-    grid-auto-flow: column
-}
-
-    nav.breadcrumbs {
-        grid-auto-columns: max-content;
-        grid-gap: 1rem
-    }

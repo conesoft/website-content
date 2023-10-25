@@ -1,10 +1,22 @@
 ﻿html {
     font-family: monospace;
-    font-size: 1.414rem;
+    font-size: 1.2vw;
     color-scheme: dark light;
 
     background-color: var(--background-color);
     color: var(--color);
+
+    caret-color: var(--accent-color);
+}
+
+@media (max-aspect-ratio: 1) {
+    html {
+        font-size: 4vw;
+    }
+}
+
+::selection {
+    background: color-mix(in oklab, var(--accent-color) 75%, transparent);
 }
 
 a {
@@ -15,15 +27,40 @@ input, button {
     font-family: inherit;
 }
 
+:root {
+    --background-color-90: color-mix(in oklab, var(--background-color) 90%, var(--color));
+    --background-color-80: color-mix(in oklab, var(--background-color) 80%, var(--color));
+    --background-color-70: color-mix(in oklab, var(--background-color) 70%, var(--color));
+
+    --accent-color-50: color-mix(in oklab, var(--accent-color) 50%, var(--background-color));
+
+    --color-90: color-mix(in oklab, var(--color) 90%, var(--background-color));
+    --color-80: color-mix(in oklab, var(--color) 80%, var(--background-color));
+    --color-70: color-mix(in oklab, var(--color) 70%, var(--background-color));
+
+    --accent-color: green;
+    --warning-color: yellow;
+    --danger-color: red;
+}
+
+
+
 @media (prefers-color-scheme: light) {
     :root {
         --color: black;
         --background-color: white;
+        --accent-color: color-mix(in oklab, springgreen 65%, black);
+        --warning-color: color-mix(in oklab, #ddfa00 75%, black);
+        --danger-color: color-mix(in oklab, #ff0565 85%, black);
     }
 }
+
 @media (prefers-color-scheme: dark) {
     :root {
         --color: white;
         --background-color: black;
+        --accent-color: mediumspringgreen;
+        --warning-color: #ddfa00;
+        --danger-color: #ff0565;
     }
 }

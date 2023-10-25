@@ -7,17 +7,12 @@
         {
             new("https://cdn.conesoft.net/style.css", "wwwroot/style.css", "uncompressed"),
             new("https://cdn.conesoft.net/style.min.css", "wwwroot/style.min.css", "minifed"),
-        }),
-        new("Pink-Style.css", new Sheet[]
-        {
-            new("https://cdn.conesoft.net/pink-style.css", "wwwroot/pink-style.css", "uncompressed"),
-            new("https://cdn.conesoft.net/pink-style.min.css", "wwwroot/pink-style.css", "minifed")
         })
     };
 }
 
 <!DOCTYPE html>
-<conesoft-html name="CDN" title="Conesoft CDN Stylesheets" url="https://cdn.conesoft.net" madeby="Conesoft">
+<conesoft-html name="cdn" title="conesoft cdn" url="https://cdn.conesoft.net" madeby="conesoft">
     <main centered>
         @foreach (var category in sheetCategories)
         {

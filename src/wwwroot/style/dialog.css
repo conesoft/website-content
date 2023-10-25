@@ -1,0 +1,6 @@
+﻿dialog {
+    inset: 50%;
+    translate: -50% -50%;
+    background-color: var(--background-color);
+    filter: drop-shadow(0 0 0.25rem var(--background-color-80)) drop-shadow(0 0 0.5rem black) drop-shadow(0 0 1rem black) drop-shadow(0 0 2rem black);
+}

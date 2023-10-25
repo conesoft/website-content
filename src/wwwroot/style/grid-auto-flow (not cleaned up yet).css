@@ -3,6 +3,12 @@
     grid-auto-columns: 1fr;
 }
 
+[inline] {
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    gap: 1ch;
+}
+
 
 [vertical] {
     grid-auto-flow: row;

@@ -1,0 +1,16 @@
+﻿::-webkit-scrollbar {
+    width: 0.5rem;
+    background: transparent;
+}
+
+::-webkit-scrollbar * {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--accent-color) 75%, var(--background-color));
+    border: 0.125rem solid transparent;
+    background-clip: padding-box;
+    border-radius: 1rem;
+    box-shadow: 0 0 5rem var(--accent-color);
+}

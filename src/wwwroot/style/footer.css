@@ -1,19 +1,24 @@
 ﻿footer {
-    place-self: end auto;
-    display: flex;
-    flex-wrap: wrap;
     overflow: hidden;
-    gap: 1ch;
-    opacity: 0.8;
-    height: 2rem;
-    line-height: 2;
     padding-inline: 1ch;
     position: sticky;
     bottom: 0;
+    height: 1rem;
+    background-color: var(--background-color);
+    grid-template-columns: auto auto 1fr;
+    place-items: center end;
 }
 
+footer, footer * {
+    grid-auto-flow: column;
+    gap: 1ch;
+}
+
+    footer > * {
+        opacity: 0.5;
+    }
+
     footer * {
-        display: inline;
         white-space: nowrap;
     }
 

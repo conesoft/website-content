@@ -1,0 +1,20 @@
+﻿body > main {
+    background: color-mix(in srgb, var(--accent-color), var(--background-color));
+    padding: 1rem;
+    box-shadow: 0 0 5rem var(--accent-color);
+    
+    gap: 1rem;
+    grid-template-rows: auto;
+    grid-auto-rows: min-content;
+}
+
+body > section > *, main > * {
+    box-shadow: 0 0 1rem var(--background-color);
+    background: var(--background-color);
+}
+
+@media only screen and (max-aspect-ratio: 1) {
+    body > main {
+        padding: 1rem 0;
+    }
+}

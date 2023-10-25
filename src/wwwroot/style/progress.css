@@ -1,0 +1,12 @@
+﻿progress {
+    color: var(--accent-color);
+}
+
+    progress::-webkit-progress-bar {
+        background-color: transparent;
+    }
+
+    progress::-webkit-progress-value {
+        background: var(--accent-color);
+        box-shadow: 0 0 1rem var(--accent-color);
+    }

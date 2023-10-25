@@ -1,13 +1,24 @@
 ﻿ul, li {
-    display: grid;
-
     min-height: 2rem;
+}
+
+ul {
+    place-content: start stretch;
+}
+
+li {
     place-content: center stretch;
 }
 
     li:nth-of-type(n+2) {
-        background-color: #222;
+        background-color: var(--background-color-80);
     }
+
     li:nth-of-type(2n+1) {
-        background-color: #111;
+        background-color: var(--background-color-90);
+    }
+
+    li button:not(:hover) {
+        background-color: transparent;
+        filter: grayscale(1);
     }

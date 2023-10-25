@@ -1,5 +1,4 @@
 nav.breadcrumbs {
-    display: inline;
     overflow: hidden;
     text-overflow: clip;
 }
@@ -9,24 +8,32 @@ nav.breadcrumbs {
     }
 
     nav.breadcrumbs, nav.breadcrumbs a:last-of-type, nav.breadcrumbs a:first-of-type, nav.breadcrumbs :not(a) {
-        color: var(--default) !important;
+        color: var(--accent-color) !important;
     }
 
         nav.breadcrumbs a:not(a:last-of-type):not(a:first-of-type) {
-            color: var(--secondary) !important;
+            color: var(--color) !important;
             opacity: 0.4;
         }
 
         nav.breadcrumbs a:hover:not(a:last-of-type):not(a:first-of-type) {
-            opacity: 0.6;
+            opacity: 0.8;
         }
 
         nav.breadcrumbs a:first-of-type {
             scale: 1.5;
             translate: 0 -0.25rem;
             padding-inline: 0.25rem;
-            text-decoration: none;
         }
+
+nav * {
+    text-decoration: none;
+}
+
+nav {
+    padding-inline: 1rem;
+    gap: 1rem;
+}
 
 nav:not(.breadcrumbs) h1 {
     text-wrap: initial;
@@ -41,14 +48,14 @@ nav:not(.breadcrumbs) a {
     }
 
     nav:not(.breadcrumbs) a:not(.active):not(:first-of-type) {
-        color: var(--secondary) !important;
+        color: var(--color) !important;
         opacity: 0.4;
     }
 
     nav:not(.breadcrumbs) a:hover:not(.active):not(:first-of-type) {
-        opacity: 0.6;
+        opacity: 0.8;
     }
 
     nav:not(.breadcrumbs) a.active, nav:not(.breadcrumbs) a:first-of-type {
-        color: var(--default) !important;
+        color: var(--accent-color) !important;
     }

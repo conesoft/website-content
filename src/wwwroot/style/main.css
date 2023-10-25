@@ -1,23 +1,9 @@
-﻿body:has(main[centered]) {
-    place-self: stretch center;
-    max-width: 60rem;
-}
-
-body:has(main[centered][thin]) {
-    max-width: 20rem;
-}
-
-main {
+﻿main {
     grid-gap: 2rem;
 }
 
 main > section {
     grid-gap: 1rem;
-}
-
-main {
-    overflow: hidden;
-    padding-bottom: 2rem; /* for footer */
 }
 
 main > section:only-child {

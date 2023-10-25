@@ -36,12 +36,12 @@ public class HtmlHeadTagHelper : TagHelper
   ""short_name"": ""{name}"",
   ""icons"": [
     {{
-      ""src"": ""/icons/android-chrome-192x192.png"",
+      ""src"": ""/site/icons/android-chrome-192x192.png"",
       ""sizes"": ""192x192"",
       ""type"": ""image/png""
     }},
     {{
-      ""src"": ""/icons/android-chrome-256x256.png"",
+      ""src"": ""/site/icons/android-chrome-256x256.png"",
       ""sizes"": ""256x256"",
       ""type"": ""image/png""
     }}
@@ -63,12 +63,11 @@ public class HtmlHeadTagHelper : TagHelper
 <head prefix=""og: http://ogp.me/ns#"">
     <meta charset=""utf-8"">
 
-    <link rel=""apple-touch-icon"" sizes=""180x180"" href=""/icons/apple-touch-icon.png"">
-    <link rel=""icon"" type=""image/png"" sizes=""32x32"" href=""/icons/favicon-32x32.png"">
-    <link rel=""icon"" type=""image/png"" sizes=""16x16"" href=""/icons/favicon-16x16.png"">
-    <link rel=""manifest"" href=""/icons/site.webmanifest"">
-    <link rel=""mask-icon"" href=""/icons/safari-pinned-tab.svg"" color=""#000000"">
-    <link rel=""shortcut icon"" href=""/icons/favicon.ico"">
+    <link rel=""apple-touch-icon"" sizes=""180x180"" href=""/site/icons/apple-touch-icon.png"">
+    <link rel=""icon"" type=""image/png"" sizes=""32x32"" href=""/site/icons/favicon-32x32.png"">
+    <link rel=""icon"" type=""image/png"" sizes=""16x16"" href=""/site/icons/favicon-16x16.png"">
+    <link rel=""manifest"" href=""/site.webmanifest"">
+    <link rel=""shortcut icon"" href=""/site/icons/favicon.ico"">
     <meta name=""apple-mobile-web-app-title"" content=""{title}"">
     <meta name=""application-name"" content=""{title}"">
     <meta name=""theme-color"" content=""#000000"">
@@ -87,14 +86,12 @@ public class HtmlHeadTagHelper : TagHelper
 </head>
 <body>
     <header>
-        <h1>{title}</h1>
+        <nav>
+            <a class=""active"" aria-current=""page"">⌂</a>
+            <a href=""/"">{title}</a>
+        </nav>
     </header>
 {content}
-    <footer>
-        <p>&copy; {DateTime.Today.Year}
-        <p>written by <a href=""https://davepermen.net"">davepermen</a>
-        <p>a <a href=""https://conesoft.net"">conesoft product</a> running on .NET {Environment.Version.Major}
-    </footer>
 </body>
 ";
 }

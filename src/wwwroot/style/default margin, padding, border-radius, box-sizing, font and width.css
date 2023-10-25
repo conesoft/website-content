@@ -1,11 +1,13 @@
-﻿*, *::before, *::after {
+﻿*:not(head, title, script, style, link), *::before, *::after {
+	display: grid;
 	margin: 0;
 	padding: 0;
 	border-radius: 0;
 	border: none;
 	box-sizing: border-box;
 	font-weight: 100;
-	font-size: inherit;
-	background: inherit;
-	outline: none;
+}
+
+[popover]:not(:popover-open) {
+	display: none;
 }
