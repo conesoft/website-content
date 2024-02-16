@@ -5,7 +5,7 @@
 	border-radius: 0;
 	border: none;
 	box-sizing: border-box;
-	font-weight: 100;
+	font-weight: 400;
 }
 
 [popover]:not(:popover-open) {

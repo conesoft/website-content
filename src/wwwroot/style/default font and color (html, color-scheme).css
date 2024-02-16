@@ -1,11 +1,9 @@
 ﻿html {
-    font-family: monospace;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     font-size: 1.2vw;
     color-scheme: dark light;
-
     background-color: var(--background-color);
     color: var(--color);
-
     caret-color: var(--accent-color);
 }
 

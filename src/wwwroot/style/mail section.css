@@ -1,0 +1,13 @@
+﻿body > main > section > header {
+    line-height: 2rem;
+    font-weight: 900;
+    text-transform: lowercase;
+    background: var(--accent-color);
+    padding: 0 1rem;
+    color: var(--background-color);
+    width: max-content;
+}
+
+body > main > section > *:not(header) {
+    background-color: var(--background-color);
+}

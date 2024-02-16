@@ -2,10 +2,6 @@
     grid-gap: 2rem;
 }
 
-main > section {
-    grid-gap: 1rem;
-}
-
 main > section:only-child {
     overflow: auto;
     height: 100%;

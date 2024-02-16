@@ -8,7 +8,14 @@ ul {
 
 li {
     place-content: center stretch;
+    transition: all 0.125s linear;
 }
+
+    li:hover {
+        box-shadow: 0 0 12rem rgba(0, 0, 0, 0.25), 0 0 1rem rgba(0, 0, 0, 0.75);
+        scale: 1.005;
+        z-index: 1;
+    }
 
     li:nth-of-type(n+2) {
         background-color: var(--background-color-80);

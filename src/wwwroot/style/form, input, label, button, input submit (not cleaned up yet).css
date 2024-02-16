@@ -21,6 +21,8 @@ button, .button, input, label:has(input:not([type=file])) {
             border: 0.25rem solid var(--accent-color);
             box-shadow: inset 0 0 1rem var(--accent-color), 0 0 1rem var(--accent-color);
             outline: none;
+            scale: 1.005;
+            z-index: 1;
         }
 
     input::placeholder {
@@ -89,6 +91,8 @@ button, .button, input, label:has(input:not([type=file])) {
     box-shadow: 0 0 1rem var(--button-color);
     contain: content;
     color: var(--color);
+    scale: 1.005;
+    z-index: 1;
 }
 
 :is(button, .button, input[type=submit], input[type=reset]):disabled {

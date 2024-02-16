@@ -42,15 +42,17 @@ body > main {
     background: color-mix(in srgb, var(--accent-color), var(--background-color));
     padding: 1rem;
     box-shadow: 0 0 5rem var(--accent-color);
-    
     gap: 1rem;
-    grid-template-rows: auto;
+    grid-template-rows: min-content;
     grid-auto-rows: min-content;
 }
 
+    body > main:has(> :only-child) {
+        grid-template-rows: auto;
+    }
+
 body > section > *, main > * {
-    box-shadow: 0 0 1rem var(--background-color);
-    background: var(--background-color);
+    filter: drop-shadow(0 0 1rem black);
 }
 
 @media only screen and (max-aspect-ratio: 1) {
@@ -58,14 +60,13 @@ body > section > *, main > * {
         padding: 1rem 0;
     }
 }
+
 html {
-    font-family: monospace;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     font-size: 1.2vw;
     color-scheme: dark light;
-
     background-color: var(--background-color);
     color: var(--color);
-
     caret-color: var(--accent-color);
 }
 
@@ -131,7 +132,7 @@ input, button {
 	border-radius: 0;
 	border: none;
 	box-sizing: border-box;
-	font-weight: 100;
+	font-weight: 400;
 }
 
 [popover]:not(:popover-open) {
@@ -195,6 +196,8 @@ button, .button, input, label:has(input:not([type=file])) {
             border: 0.25rem solid var(--accent-color);
             box-shadow: inset 0 0 1rem var(--accent-color), 0 0 1rem var(--accent-color);
             outline: none;
+            scale: 1.005;
+            z-index: 1;
         }
 
     input::placeholder {
@@ -263,6 +266,8 @@ button, .button, input, label:has(input:not([type=file])) {
     box-shadow: 0 0 1rem var(--button-color);
     contain: content;
     color: var(--color);
+    scale: 1.005;
+    z-index: 1;
 }
 
 :is(button, .button, input[type=submit], input[type=reset]):disabled {
@@ -287,7 +292,14 @@ ul {
 
 li {
     place-content: center stretch;
+    transition: all 0.125s linear;
 }
+
+    li:hover {
+        box-shadow: 0 0 12rem rgba(0, 0, 0, 0.25), 0 0 1rem rgba(0, 0, 0, 0.75);
+        scale: 1.005;
+        z-index: 1;
+    }
 
     li:nth-of-type(n+2) {
         background-color: var(--background-color-80);
@@ -323,7 +335,7 @@ h1 {
     padding: 0.5rem 1rem;
 }
 
-header {
+body > header {
     position: sticky;
     top: 0;
     left: 0;
@@ -336,32 +348,42 @@ header {
     background-color: var(--background-color);
 }
 
-header *:not(a) {
-    user-select: none;
-}
+    body > header *:not(a) {
+        user-select: none;
+    }
 
-header *:not(nav) {
-    app-region: no-drag;
-}
+    body > header *:not(nav) {
+        app-region: no-drag;
+    }
 
-header nav {
-    color: var(--secondary);
-    line-break: normal;
-    text-wrap: balance;
-    overflow: hidden;
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
-    grid-auto-flow: column;
-    background-color: transparent;
+    body > header nav {
+        color: var(--secondary);
+        line-break: normal;
+        text-wrap: balance;
+        overflow: hidden;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+        grid-auto-flow: column;
+        background-color: transparent;
+        line-height: 2rem;
+    }
+body > main > section > header {
     line-height: 2rem;
+    font-weight: 900;
+    text-transform: lowercase;
+    background: var(--accent-color);
+    padding: 0 1rem;
+    color: var(--background-color);
+    width: max-content;
 }
+
+body > main > section > *:not(header) {
+    background-color: var(--background-color);
+}
+
 main {
     grid-gap: 2rem;
-}
-
-main > section {
-    grid-gap: 1rem;
 }
 
 main > section:only-child {
@@ -432,6 +454,8 @@ nav:not(.breadcrumbs) a {
 
 progress {
     color: var(--accent-color);
+    width: 100%;
+    height: 100%;
 }
 
     progress::-webkit-progress-bar {

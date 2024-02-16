@@ -2,15 +2,17 @@
     background: color-mix(in srgb, var(--accent-color), var(--background-color));
     padding: 1rem;
     box-shadow: 0 0 5rem var(--accent-color);
-    
     gap: 1rem;
-    grid-template-rows: auto;
+    grid-template-rows: min-content;
     grid-auto-rows: min-content;
 }
 
+    body > main:has(> :only-child) {
+        grid-template-rows: auto;
+    }
+
 body > section > *, main > * {
-    box-shadow: 0 0 1rem var(--background-color);
-    background: var(--background-color);
+    filter: drop-shadow(0 0 1rem black);
 }
 
 @media only screen and (max-aspect-ratio: 1) {

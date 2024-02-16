@@ -1,4 +1,4 @@
-﻿header {
+﻿body > header {
     position: sticky;
     top: 0;
     left: 0;
@@ -11,23 +11,23 @@
     background-color: var(--background-color);
 }
 
-header *:not(a) {
-    user-select: none;
-}
+    body > header *:not(a) {
+        user-select: none;
+    }
 
-header *:not(nav) {
-    app-region: no-drag;
-}
+    body > header *:not(nav) {
+        app-region: no-drag;
+    }
 
-header nav {
-    color: var(--secondary);
-    line-break: normal;
-    text-wrap: balance;
-    overflow: hidden;
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
-    grid-auto-flow: column;
-    background-color: transparent;
-    line-height: 2rem;
-}
+    body > header nav {
+        color: var(--secondary);
+        line-break: normal;
+        text-wrap: balance;
+        overflow: hidden;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+        grid-auto-flow: column;
+        background-color: transparent;
+        line-height: 2rem;
+    }
