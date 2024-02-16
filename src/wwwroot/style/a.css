@@ -18,3 +18,7 @@
         filter: grayscale(1) brightness(1.1) contrast(5);
         font-size: small;
     }
+
+    a, a * {
+        display: inline !important;
+    }

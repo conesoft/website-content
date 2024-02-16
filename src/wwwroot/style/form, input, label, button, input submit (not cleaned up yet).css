@@ -84,6 +84,7 @@ button, .button, input, label:has(input:not([type=file])) {
     align-items: center;
     min-height: 2rem;
     color: var(--button-color);
+    place-content: center;
 }
 
 :is(button, .button, input[type=submit], input[type=reset], label:has(input:not([type=file])), [readonly] ):hover:not(:disabled), label:has(input:checked) {

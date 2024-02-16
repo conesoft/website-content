@@ -18,6 +18,10 @@ a {
         filter: grayscale(1) brightness(1.1) contrast(5);
         font-size: small;
     }
+
+    a, a * {
+        display: inline !important;
+    }
 #components-reconnect-modal {
     background-color: transparent !important;
     place-content: center center !important;
@@ -61,6 +65,9 @@ body > section > *, main > * {
     }
 }
 
+code * {
+    display: inline !important;
+}
 html {
     font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     font-size: 1.2vw;
@@ -259,6 +266,7 @@ button, .button, input, label:has(input:not([type=file])) {
     align-items: center;
     min-height: 2rem;
     color: var(--button-color);
+    place-content: center;
 }
 
 :is(button, .button, input[type=submit], input[type=reset], label:has(input:not([type=file])), [readonly] ):hover:not(:disabled), label:has(input:checked) {

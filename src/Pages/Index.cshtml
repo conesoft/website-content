@@ -16,31 +16,29 @@
     <main centered>
         @foreach (var category in sheetCategories)
         {
-            <section>
-                <h2>@category.Name</h2>
-                @foreach (var sheet in category.Sheets)
-                {
-                    <ul>
-                        <li horizontal pretty-card style="grid-template-columns: 1fr auto">
-                            <section vertical>
-                                <h2>@sheet.Description</h2>
-                                <a href="@sheet.BaseUrl?v=@sheet.Md5">@sheet.BaseUrl?<b>v=@sheet.Md5</b></a>
-                                <pre><code class="language-html">&lt;link
+            @foreach (var sheet in category.Sheets)
+            {
+                <section>
+                    <header>@sheet.Description</header>
+                    <div horizontal style="grid-template-columns: 1fr auto">
+                        <div vertical style="padding-block-end: 2rem">
+                            <a style="padding: 1rem" href="@sheet.BaseUrl?v=@sheet.Md5">@sheet.BaseUrl?<b>v=@sheet.Md5</b></a>
+                            <pre><code class="language-html">&lt;link
     rel="stylesheet"
     type="test/css"
     href="@sheet.BaseUrl?v=@sheet.Md5"
 &gt;</code></pre>
-                            </section>
-                            <button onclick="@Html.Raw($"""navigator.clipboard.writeText('<link rel=\x22stylesheet\x22 type=\x22text/css\x22 href=\x22{sheet.BaseUrl}?v={sheet.Md5}\x22>')""")">
-                                <svg viewBox='0 0 16 16' version='1.1'>
-                                    <path fill-rule='evenodd' d='M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z'></path>
-                                    <path fill-rule='evenodd' d='M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z'></path>
-                                </svg>
-                            </button>
-                        </li>
-                    </ul>
-                }
-            </section>
+                        </div>
+                        <button onclick="@Html.Raw($"""navigator.clipboard.writeText('<link rel=\x22stylesheet\x22 type=\x22text/css\x22 href=\x22{sheet.BaseUrl}?v={sheet.Md5}\x22>')""")">
+                            <svg style="min-width: 5rem; padding: 1rem" viewBox='0 0 16 16' version='1.1'>
+                                <path fill="white" fill-rule='evenodd' d='M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z'></path>
+                                <path fill="white" fill-rule='evenodd' d='M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z'></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </section>
+            }
         }
     </main>
 
