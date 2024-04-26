@@ -12,7 +12,15 @@
     }
 
 body > section > *, main > * {
-    filter: drop-shadow(0 0 1rem black);
+    /*filter: drop-shadow(0 0 1rem black);*/
+}
+
+body > section > * > *, main > * > * {
+    box-shadow: 0 0 2rem black;
+}
+
+main > *:last-of-type {
+    margin-block-end: 2rem;
 }
 
 @media only screen and (max-aspect-ratio: 1) {
