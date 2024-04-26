@@ -1,26 +1,22 @@
-﻿body > main {
+﻿body {
     background: color-mix(in srgb, var(--accent-color), var(--background-color));
+}
+
+body > main {
     padding: 1rem;
     box-shadow: 0 0 5rem var(--accent-color);
     gap: 1rem;
     grid-template-rows: min-content;
     grid-auto-rows: min-content;
+    filter: drop-shadow(0 0 1rem black);
 }
 
     body > main:has(> :only-child) {
         grid-template-rows: auto;
     }
 
-body > section > *, main > * {
-    /*filter: drop-shadow(0 0 1rem black);*/
-}
-
-body > section > * > *, main > * > * {
-    box-shadow: 0 0 2rem black;
-}
-
 main > *:last-of-type {
-    margin-block-end: 2rem;
+    margin-block-end: 4rem;
 }
 
 @media only screen and (max-aspect-ratio: 1) {

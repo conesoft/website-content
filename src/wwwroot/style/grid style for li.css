@@ -11,21 +11,24 @@ li {
     transition: all 0.125s linear;
 }
 
-    li:hover {
-        box-shadow: 0 0 12rem rgba(0, 0, 0, 0.25), 0 0 1rem rgba(0, 0, 0, 0.75);
-        scale: 1.005;
-        z-index: 1;
-    }
+ul > li:hover {
+    box-shadow: 0 0 12rem rgba(0, 0, 0, 0.25), 0 0 1rem rgba(0, 0, 0, 0.75);
+}
 
-    li:nth-of-type(n+2) {
-        background-color: var(--background-color-80);
-    }
+li:hover {
+    scale: 1.005;
+    z-index: 1;
+}
 
-    li:nth-of-type(2n+1) {
-        background-color: var(--background-color-90);
-    }
+ul > li:nth-of-type(2n), :where(ul > li:nth-of-type(2n)) li {
+    background-color: var(--background-color-80);
+}
 
-    li button:not(:hover) {
-        background-color: transparent;
-        filter: grayscale(1);
-    }
+ul > li:nth-of-type(2n+1), :where(ul > li:nth-of-type(2n+1)) li {
+    background-color: var(--background-color-90);
+}
+
+li button:not(:hover) {
+    background-color: transparent;
+    filter: grayscale(1);
+}

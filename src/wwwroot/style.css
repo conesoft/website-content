@@ -42,29 +42,25 @@ a {
     #components-reconnect-modal > *:not(:first-child) {
         display: none !important;
     }
-body > main {
+body {
     background: color-mix(in srgb, var(--accent-color), var(--background-color));
+}
+
+body > main {
     padding: 1rem;
     box-shadow: 0 0 5rem var(--accent-color);
     gap: 1rem;
     grid-template-rows: min-content;
     grid-auto-rows: min-content;
+    filter: drop-shadow(0 0 1rem black);
 }
 
     body > main:has(> :only-child) {
         grid-template-rows: auto;
     }
 
-body > section > *, main > * {
-    /*filter: drop-shadow(0 0 1rem black);*/
-}
-
-body > section > * > *, main > * > * {
-    box-shadow: 0 0 2rem black;
-}
-
 main > *:last-of-type {
-    margin-block-end: 2rem;
+    margin-block-end: 4rem;
 }
 
 @media only screen and (max-aspect-ratio: 1) {
@@ -311,24 +307,27 @@ li {
     transition: all 0.125s linear;
 }
 
-    li:hover {
-        box-shadow: 0 0 12rem rgba(0, 0, 0, 0.25), 0 0 1rem rgba(0, 0, 0, 0.75);
-        scale: 1.005;
-        z-index: 1;
-    }
+ul > li:hover {
+    box-shadow: 0 0 12rem rgba(0, 0, 0, 0.25), 0 0 1rem rgba(0, 0, 0, 0.75);
+}
 
-    li:nth-of-type(n+2) {
-        background-color: var(--background-color-80);
-    }
+li:hover {
+    scale: 1.005;
+    z-index: 1;
+}
 
-    li:nth-of-type(2n+1) {
-        background-color: var(--background-color-90);
-    }
+ul > li:nth-of-type(2n), :where(ul > li:nth-of-type(2n)) li {
+    background-color: var(--background-color-80);
+}
 
-    li button:not(:hover) {
-        background-color: transparent;
-        filter: grayscale(1);
-    }
+ul > li:nth-of-type(2n+1), :where(ul > li:nth-of-type(2n+1)) li {
+    background-color: var(--background-color-90);
+}
+
+li button:not(:hover) {
+    background-color: transparent;
+    filter: grayscale(1);
+}
 
 [horizontal] {
     grid-auto-flow: column;
