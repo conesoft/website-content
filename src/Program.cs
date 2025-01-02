@@ -2,9 +2,14 @@ using Conesoft.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder
+    .AddHostConfigurationFiles()
+    .AddHostEnvironmentInfo()
+    .AddLoggingService()
+    ;
+
 builder.Services
     .AddCompiledHashCacheBuster()
-    .AddPeriodicGarbageCollection(TimeSpan.FromMinutes(5))
     .AddCors()
     .AddRazorPages();
 
