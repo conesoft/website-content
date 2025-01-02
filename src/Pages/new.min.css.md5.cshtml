@@ -1,0 +1,14 @@
+﻿@page
+@using Conesoft.Website.CDN
+@{
+    Layout = null;
+    var sheet = new Sheet("https://cdn.conesoft.net/new.css", "wwwroot/new.css", "uncompressed");
+}@sheet.Md5
+@functions {
+    record SheetCategory(string Name, Sheet[] Sheets);
+
+    record Sheet(string BaseUrl, string CssFile, string Description)
+    {
+        public string Md5 { get; } = Helpers.CalculateMD5(CssFile);
+    }
+}

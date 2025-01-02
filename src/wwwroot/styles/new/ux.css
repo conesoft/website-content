@@ -1,0 +1,16 @@
+﻿@layer ux {
+
+    @layer popover {
+        [popover]:not(:popover-open) {
+            display: none !important; /* this seems to actually be a usecase for important lol */
+        }
+
+        /* disable ability to click on items outside of the popover, if attribute captive is set */
+        body:has([captive][popover]:popover-open) {
+            pointer-events: none;
+        }
+        [captive]:popover-open {
+            pointer-events: all;
+        }
+    }
+}

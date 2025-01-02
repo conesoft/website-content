@@ -2,13 +2,14 @@
   {
     "outputFileName": "wwwroot/style.css",
     "inputFiles": [
-      "wwwroot/style/**/*.css"
+      "wwwroot/styles/old/**/*.css"
     ]
   },
   {
-    "outputFileName": "wwwroot/pink-style.css",
+    "outputFileName": "wwwroot/new.css",
     "inputFiles": [
-      "wwwroot/pink-style/**/*.css"
+      "wwwroot/styles/new/layer order.css",
+      "wwwroot/styles/new/**/*.css"
     ]
   }
 ]

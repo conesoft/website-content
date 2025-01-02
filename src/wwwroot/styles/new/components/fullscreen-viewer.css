@@ -1,0 +1,25 @@
+body:has([fullscreen-viewer]) > *:not([fullscreen-viewer]) {
+    display: none;
+}
+
+html:has([fullscreen-viewer]) {
+    scrollbar-gutter: auto;
+}
+
+body:has([fullscreen-viewer]) {
+    display: grid;
+    grid-template-rows: initial;
+    grid-template: "fullscreen-viewer";
+    height: 100%;
+    place-items: stretch;
+    margin-top: 0px;
+    background: black;
+    overflow: hidden;
+}
+
+[fullscreen-viewer] {
+    display: grid;
+    grid-area: fullscreen-viewer;
+    width: 100cqw;
+    height: 100cqh;
+}

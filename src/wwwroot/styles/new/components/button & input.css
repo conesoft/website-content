@@ -1,0 +1,44 @@
+﻿@layer components.buttoninput {
+
+    button, input, label:has(>input) {
+        --button-color: var(--accent-color);
+        --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color))
+
+        background-color: var(--background-color-80);
+        min-height: 2rem;
+        color: var(--button-color);
+        place-content: center;
+        text-align: center;
+
+        &:hover:not(:disabled) {
+            background: var(--button-color);
+            color: var(--color);
+            box-shadow: inset 0 0 1rem var(--button-color), 0 0 1rem var(--button-color);
+        }
+
+        &:focus-visible {
+            transition-duration: 0s;
+            color: var(--color);
+            background-color: var(--button-color-75);
+        }
+    }
+
+input:not([type=submit]) {
+    border: 0.25rem solid var(--background-color-70);
+
+    &:hover:not(:disabled) {
+        background-color: var(--background-color-80);
+        border: 0.25rem solid var(--accent-color);
+    }
+}
+
+    menu > :is(button, input, label:has(>input)) {
+        background-color: initial;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

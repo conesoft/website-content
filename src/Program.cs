@@ -1,11 +1,20 @@
+using Conesoft.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddRazorPages();
-builder.Services.AddCors();
+
+builder.Services
+    .AddCompiledHashCacheBuster()
+    .AddPeriodicGarbageCollection(TimeSpan.FromMinutes(5))
+    .AddCors()
+    .AddRazorPages();
+
 var app = builder.Build();
 
-app.UseDefaultFiles();
-app.UseStaticFiles();
+app
+    .UseCompiledHashCacheBuster()
+    .UseStaticFiles();
 
+app.MapStaticAssets();
 app.MapRazorPages();
 
 app.Run();
