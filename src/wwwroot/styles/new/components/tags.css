@@ -5,8 +5,9 @@
 
         flex-wrap: wrap;
         height: 1rem;
+        place-self: center end;
 
-        overflow-y: hidden;
+        overflow: clip;
 
         & > li {
 
