@@ -33,9 +33,8 @@
 
     button, input, label:has(>input) {
         --button-color: var(--accent-color);
-        --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color))
+        --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color));
 
-        background-color: var(--background-color-80);
         min-height: 2rem;
         color: var(--button-color);
         place-content: center;
@@ -316,6 +315,7 @@ body:has([fullscreen-viewer]) {
         place-content: center start;
         outline: none;
         border: none;
+        background-color: transparent;
     }
 
     a {
@@ -369,7 +369,7 @@ body:has([fullscreen-viewer]) {
             --color: black;
             --background-color: white;
             --accent-color: color-mix(in oklab, springgreen 65%, black);
-            --warning-color: color-mix(in oklab, #ddfa00 75%, black);
+            --warning-color: color-mix(in oklab, #fadc00 75%, black);
             --danger-color: color-mix(in oklab, #ff0565 85%, black);
         }
 
@@ -377,7 +377,7 @@ body:has([fullscreen-viewer]) {
             --color: white;
             --background-color: black;
             --accent-color: mediumspringgreen;
-            --warning-color: #ddfa00;
+            --warning-color: ##fadc00;
             --danger-color: #ff0565;
         }
     }

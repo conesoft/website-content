@@ -2,9 +2,8 @@
 
     button, input, label:has(>input) {
         --button-color: var(--accent-color);
-        --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color))
+        --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color));
 
-        background-color: var(--background-color-80);
         min-height: 2rem;
         color: var(--button-color);
         place-content: center;

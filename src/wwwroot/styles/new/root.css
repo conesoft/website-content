@@ -22,7 +22,7 @@
             --color: black;
             --background-color: white;
             --accent-color: color-mix(in oklab, springgreen 65%, black);
-            --warning-color: color-mix(in oklab, #ddfa00 75%, black);
+            --warning-color: color-mix(in oklab, #fadc00 75%, black);
             --danger-color: color-mix(in oklab, #ff0565 85%, black);
         }
 
@@ -30,7 +30,7 @@
             --color: white;
             --background-color: black;
             --accent-color: mediumspringgreen;
-            --warning-color: #ddfa00;
+            --warning-color: ##fadc00;
             --danger-color: #ff0565;
         }
     }
