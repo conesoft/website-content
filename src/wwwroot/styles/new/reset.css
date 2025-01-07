@@ -38,7 +38,7 @@
         pointer-events: none;
     }
 
-    img[src$="icon.svg"] {
+    img[src$=".svg"] {
         width: 1rem;
     }
 

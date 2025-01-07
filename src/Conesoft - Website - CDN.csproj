@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <PackageReference Include="Conesoft.Hosting" Version="3.3.7" />
+    <PackageReference Include="Conesoft.PwaGenerator" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\blazor-components\src\Blazor Components.csproj" />
   </ItemGroup>
 
 </Project>

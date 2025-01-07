@@ -1,0 +1,52 @@
+﻿@page "/"
+@using Conesoft.Blazor.Components.Interfaces
+@using Conesoft.Blazor.Components
+@using System.Reflection
+@using System.Text.RegularExpressions
+@using Conesoft.Website.CDN.Features.Services
+
+@inject SheetCollection sheets
+
+<UserHeaderNav NoAuthorization=true>
+    <HomeButtonContent>⌂</HomeButtonContent>
+    <NavContent>
+        <NavLink>conesoft</NavLink> ▸
+        <NavLink Match=NavLinkMatch.All href="/">cdn</NavLink>
+    </NavContent>
+</UserHeaderNav>
+<main>
+    @foreach (var category in sheets.Sheets.GroupBy(s => s.Filename.Substring(0, s.Filename.IndexOf("."))))
+    {
+        <section>
+            <header>@category.Key</header>
+            <ul>
+                @foreach (var sheet in category)
+                {
+                    <li>
+                        <img src="icons/file-icon.svg" />
+                        <a href="@sheet.Url?v=@sheet.Md5">@sheet.Url?<b style="color: var(--accent-color)">v=@sheet.Md5</b></a>
+                        <menu>
+                            <li>
+                                <a title="copy url" onclick="@((MarkupString)$"""navigator.clipboard.writeText('{sheet.Url}?v={sheet.Md5}')""")">
+                                    <span>copy url</span>
+                                    <img src="icons/copy.svg" />
+                                </a>
+                            </li>
+                        </menu>
+                    </li>
+                    <li>
+                        <pre><code>&lt;link rel="stylesheet" type="test/css" href="@sheet.Url?v=@sheet.Md5"&gt;</code></pre>
+                        <menu>
+                            <li>
+                                <a title="copy embed code" onclick="@((MarkupString)$"""navigator.clipboard.writeText('<link rel=\x22stylesheet\x22 type=\x22text/css\x22 href=\x22{sheet.Url}?v={sheet.Md5}\x22>')""")">
+                                    <span>copy embed code</span>
+                                    <img src="icons/copy.svg" />
+                                </a>
+                            </li>
+                        </menu>
+                    </li>
+                }
+            </ul>
+        </section>
+    }
+</main>

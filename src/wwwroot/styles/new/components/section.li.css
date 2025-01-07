@@ -1,0 +1,60 @@
+menu, li {
+    place-content: stretch;
+}
+
+main > section {
+    font-weight: 100;
+}
+
+main > section code {
+    font-size: 0.5rem;
+    font-weight: 100;
+}
+main > section code::before {
+    content: "embed code: ";
+    font-size: 1rem;
+}
+
+main > section > ul > li > [src$="icon.svg"]:first-of-type {
+    grid-column: 2;
+    place-self: center;
+}
+
+main > section > ul > li > *:not([src$="icon.svg"]):not(header):first-child {
+    grid-column: 3;
+}
+
+main > section > ul > li a, main > section > ul > li a * {
+    display: inline;
+}
+
+main > section menu > li {
+    padding-inline: 0.5rem;
+    text-align: right;
+    font-size: 0.7rem;
+}
+
+main > section menu > li a {
+    place-content: center end;
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+main > section menu > li span {
+    opacity: 0;
+}
+main > section li:hover menu > li span {
+    opacity: 0.7;
+}
+
+main > section menu > li img {
+    opacity: 0.1;
+}
+main > section li:hover menu > li * {
+    opacity: 1;
+}
+
+menu:has(a) {
+    z-index: 2;
+}
