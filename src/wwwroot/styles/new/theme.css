@@ -43,15 +43,21 @@
     }
 
     @layer animation {
+        :root {
+            --transition: all 0.33s linear allow-discrete;
+        }
         * {
-            transition: all 0.33s linear;
+            transition: var(--transition);
         }
-        *:hover {
-            transition-duration: 0s;
-        }
+            *::details-content {
+                transition: var(--transition);
+            }
+            *:hover {
+                transition-duration: 0s;
+            }
 
         body:has(:hover) {
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         button:hover {

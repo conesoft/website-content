@@ -1,4 +1,7 @@
 @layer components.a {
+    a {
+        place-items: center;
+    }
     a:focus-visible {
         transition-duration: 0s;
         background-color: var(--accent-color-50);

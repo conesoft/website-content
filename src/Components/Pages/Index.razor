@@ -24,22 +24,24 @@
                 {
                     <li>
                         <img src="icons/file-icon.svg" />
-                        <a href="@sheet.Url?v=@sheet.Md5">@sheet.Url?<b style="color: var(--accent-color)">v=@sheet.Md5</b></a>
+                        <section>
+                            <a href="@sheet.Url?v=@sheet.Md5">@sheet.Url?<b style="color: var(--accent-color)">v=@sheet.Md5</b></a>
+                        </section>
                         <menu>
                             <li>
                                 <a title="copy url" onclick="@((MarkupString)$"""navigator.clipboard.writeText('{sheet.Url}?v={sheet.Md5}')""")">
-                                    <span>copy url</span>
                                     <img src="icons/copy.svg" />
                                 </a>
                             </li>
                         </menu>
                     </li>
                     <li>
-                        <pre><code>&lt;link rel="stylesheet" type="test/css" href="@sheet.Url?v=@sheet.Md5"&gt;</code></pre>
+                        <section>
+                            <pre><code>&lt;link rel="stylesheet" type="test/css" href="@sheet.Url?v=@sheet.Md5"&gt;</code></pre>
+                        </section>
                         <menu>
                             <li>
                                 <a title="copy embed code" onclick="@((MarkupString)$"""navigator.clipboard.writeText('<link rel=\x22stylesheet\x22 type=\x22text/css\x22 href=\x22{sheet.Url}?v={sheet.Md5}\x22>')""")">
-                                    <span>copy embed code</span>
                                     <img src="icons/copy.svg" />
                                 </a>
                             </li>

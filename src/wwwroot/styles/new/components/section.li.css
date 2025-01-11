@@ -1,60 +1,65 @@
-menu, li {
-    place-content: stretch;
-}
+@layer components.section {
+    menu, li {
+        place-content: stretch;
+    }
 
-main > section {
-    font-weight: 100;
-}
+    main > section {
+        font-weight: 100;
+    }
 
-main > section code {
-    font-size: 0.5rem;
-    font-weight: 100;
-}
-main > section code::before {
-    content: "embed code: ";
-    font-size: 1rem;
-}
+        main > section code {
+            font-size: 0.5rem;
+            font-weight: 100;
+        }
 
-main > section > ul > li > [src$="icon.svg"]:first-of-type {
-    grid-column: 2;
-    place-self: center;
-}
+            main > section code::before {
+                content: "embed code: ";
+                font-size: 1rem;
+            }
 
-main > section > ul > li > *:not([src$="icon.svg"]):not(header):first-child {
-    grid-column: 3;
-}
+        main > section > ul > li > [src$=".svg"]:first-of-type {
+            grid-column: 2;
+            place-self: center;
+        }
 
-main > section > ul > li a, main > section > ul > li a * {
-    display: inline;
-}
+        main > section > ul > li > *:not([src$=".svg"]):not(header):first-child {
+            grid-column: 3;
+        }
 
-main > section menu > li {
-    padding-inline: 0.5rem;
-    text-align: right;
-    font-size: 0.7rem;
-}
+        main > section > ul > li > section a {
+            &, * {
+                display: initial;
+            }
+        }
 
-main > section menu > li a {
-    place-content: center end;
-    display: flex;
-    gap: 0.5rem;
-    cursor: pointer;
-}
+        main > section menu {
+            display: flex;
+            justify-self: end;
+            margin-inline-start: -0.5rem;
+        }
 
-main > section menu > li span {
-    opacity: 0;
-}
-main > section li:hover menu > li span {
-    opacity: 0.7;
-}
+            main > section li:not(:hover) menu {
+                opacity: 0.1;
+            }
 
-main > section menu > li img {
-    opacity: 0.1;
-}
-main > section li:hover menu > li * {
-    opacity: 1;
-}
+        main > section menu > li {
+            min-width: 2rem;
+            text-align: center;
+        }
 
-menu:has(a) {
-    z-index: 2;
+            main > section menu > li:not(:hover) {
+                opacity: 0.7;
+            }
+
+            main > section menu a:hover {
+                background-color: var(--accent-color);
+            }
+
+            main > section menu > li button:not(:hover) {
+                background-color: transparent;
+            }
+
+    menu:has(a) {
+        z-index: 2;
+    }
 }

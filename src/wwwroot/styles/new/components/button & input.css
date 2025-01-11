@@ -8,6 +8,8 @@
         color: var(--button-color);
         place-content: center;
         text-align: center;
+        display: block;
+        font-weight: 900;
 
         &:hover:not(:disabled) {
             background: var(--button-color);
@@ -19,6 +21,10 @@
             transition-duration: 0s;
             color: var(--color);
             background-color: var(--button-color-75);
+        }
+
+        &:not(:hover) {
+            background: var(--background-color);
         }
     }
 

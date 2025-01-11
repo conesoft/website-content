@@ -1,0 +1,6 @@
+﻿@layer components.details {
+    *:not([open])::details-content {
+        translate: 0 -.5rem;
+        opacity: 0;
+    }
+}

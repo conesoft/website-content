@@ -1,5 +1,8 @@
 @layer reset, ux, root, layout, theme, components;
 @layer components.a {
+    a {
+        place-items: center;
+    }
     a:focus-visible {
         transition-duration: 0s;
         background-color: var(--accent-color-50);
@@ -39,6 +42,8 @@
         color: var(--button-color);
         place-content: center;
         text-align: center;
+        display: block;
+        font-weight: 900;
 
         &:hover:not(:disabled) {
             background: var(--button-color);
@@ -50,6 +55,10 @@
             transition-duration: 0s;
             color: var(--color);
             background-color: var(--button-color-75);
+        }
+
+        &:not(:hover) {
+            background: var(--background-color);
         }
     }
 
@@ -71,6 +80,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+@layer components.details {
+    *:not([open])::details-content {
+        translate: 0 -.5rem;
+        opacity: 0;
+    }
 }
 
 body:has(dialog[open]) {
@@ -106,6 +122,12 @@ body:has(dialog[open]) {
         }
     }
 }
+@layer components.form {
+    main form input[type]:not([type=number]):not([type=date]):not(:hover), main form label:has(>input[type=radio]):not(:hover) {
+        background: var(--background-color-80);
+    }
+}
+
 body:has([fullscreen-viewer]) > *:not([fullscreen-viewer]) {
     display: none;
 }
@@ -188,66 +210,72 @@ body:has([fullscreen-viewer]) {
         }
     }
 }
-menu, li {
-    place-content: stretch;
+@layer components.section {
+    menu, li {
+        place-content: stretch;
+    }
+
+    main > section {
+        font-weight: 100;
+    }
+
+        main > section code {
+            font-size: 0.5rem;
+            font-weight: 100;
+        }
+
+            main > section code::before {
+                content: "embed code: ";
+                font-size: 1rem;
+            }
+
+        main > section > ul > li > [src$=".svg"]:first-of-type {
+            grid-column: 2;
+            place-self: center;
+        }
+
+        main > section > ul > li > *:not([src$=".svg"]):not(header):first-child {
+            grid-column: 3;
+        }
+
+        main > section > ul > li > section a {
+            &, * {
+                display: initial;
+            }
+        }
+
+        main > section menu {
+            display: flex;
+            justify-self: end;
+            margin-inline-start: -0.5rem;
+        }
+
+            main > section li:not(:hover) menu {
+                opacity: 0.1;
+            }
+
+        main > section menu > li {
+            min-width: 2rem;
+            text-align: center;
+        }
+
+            main > section menu > li:not(:hover) {
+                opacity: 0.7;
+            }
+
+            main > section menu a:hover {
+                background-color: var(--accent-color);
+            }
+
+            main > section menu > li button:not(:hover) {
+                background-color: transparent;
+            }
+
+    menu:has(a) {
+        z-index: 2;
+    }
 }
 
-main > section {
-    font-weight: 100;
-}
-
-main > section code {
-    font-size: 0.5rem;
-    font-weight: 100;
-}
-main > section code::before {
-    content: "embed code: ";
-    font-size: 1rem;
-}
-
-main > section > ul > li > [src$="icon.svg"]:first-of-type {
-    grid-column: 2;
-    place-self: center;
-}
-
-main > section > ul > li > *:not([src$="icon.svg"]):not(header):first-child {
-    grid-column: 3;
-}
-
-main > section > ul > li a, main > section > ul > li a * {
-    display: inline;
-}
-
-main > section menu > li {
-    padding-inline: 0.5rem;
-    text-align: right;
-    font-size: 0.7rem;
-}
-
-main > section menu > li a {
-    place-content: center end;
-    display: flex;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-main > section menu > li span {
-    opacity: 0;
-}
-main > section li:hover menu > li span {
-    opacity: 0.7;
-}
-
-main > section menu > li img {
-    opacity: 0.1;
-}
-main > section li:hover menu > li * {
-    opacity: 1;
-}
-
-menu:has(a) {
-    z-index: 2;
-}
 @layer components.tags {
     .tags {
         display: flex;
@@ -380,6 +408,7 @@ menu:has(a) {
 
     a {
         text-decoration-color: transparent;
+        cursor: pointer;
     }
 
     li {
@@ -437,7 +466,7 @@ menu:has(a) {
             --color: white;
             --background-color: black;
             --accent-color: mediumspringgreen;
-            --warning-color: ##fadc00;
+            --warning-color: #fadc00;
             --danger-color: #ff0565;
         }
     }
@@ -487,15 +516,21 @@ menu:has(a) {
     }
 
     @layer animation {
+        :root {
+            --transition: all 0.33s linear allow-discrete;
+        }
         * {
-            transition: all 0.33s linear;
+            transition: var(--transition);
         }
-        *:hover {
-            transition-duration: 0s;
-        }
+            *::details-content {
+                transition: var(--transition);
+            }
+            *:hover {
+                transition-duration: 0s;
+            }
 
         body:has(:hover) {
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         button:hover {
@@ -578,4 +613,14 @@ menu:has(a) {
             pointer-events: all;
         }
     }
+
+
+    [risky] {
+        --accent-color: var(--warning-color);
+    }
+
+    [dangerous] {
+        --accent-color: var(--danger-color);
+    }
+
 }

@@ -1,0 +1,5 @@
+﻿@layer components.form {
+    main form input[type]:not([type=number]):not([type=date]):not(:hover), main form label:has(>input[type=radio]):not(:hover) {
+        background: var(--background-color-80);
+    }
+}

@@ -13,4 +13,14 @@
             pointer-events: all;
         }
     }
+
+
+    [risky] {
+        --accent-color: var(--warning-color);
+    }
+
+    [dangerous] {
+        --accent-color: var(--danger-color);
+    }
+
 }
