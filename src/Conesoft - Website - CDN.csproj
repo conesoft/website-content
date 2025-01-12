@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Conesoft.Hosting" Version="3.3.7" />
-    <PackageReference Include="Conesoft.PwaGenerator" Version="1.0.0" />
+    <PackageReference Include="Conesoft.Hosting" Version="3.3.9" />
+    <PackageReference Include="Conesoft.PwaGenerator" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>

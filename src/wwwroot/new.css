@@ -34,7 +34,7 @@
 }
 @layer components.buttoninput {
 
-    button, input, label:has(>input) {
+    button, input, label:has(>input), label[for], menu a:not([href]), section a:not([href]) {
         --button-color: var(--accent-color);
         --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color));
 
@@ -56,23 +56,15 @@
             color: var(--color);
             background-color: var(--button-color-75);
         }
+    }
 
-        &:not(:hover) {
-            background: var(--background-color);
+    input:not([type=submit]):not([type=reset]):not([readonly]) {
+        border: 0.25rem solid var(--background-color-70);
+
+        &:hover:not(:disabled) {
+            background-color: var(--background-color-80);
+            border: 0.25rem solid var(--accent-color);
         }
-    }
-
-input:not([type=submit]) {
-    border: 0.25rem solid var(--background-color-70);
-
-    &:hover:not(:disabled) {
-        background-color: var(--background-color-80);
-        border: 0.25rem solid var(--accent-color);
-    }
-}
-
-    menu > :is(button, input, label:has(>input)) {
-        background-color: initial;
     }
 }
 
@@ -216,7 +208,7 @@ body:has([fullscreen-viewer]) {
     }
 
     main > section {
-        font-weight: 100;
+        /*font-weight: 100;*/
     }
 
         main > section code {
@@ -241,6 +233,16 @@ body:has([fullscreen-viewer]) {
         main > section > ul > li > section a {
             &, * {
                 display: initial;
+            }
+        }
+
+        main > section > ul[empty] {
+            > li, > li * {
+                text-align: center;
+                align-content: center;
+                opacity: 0.7;
+                font-style: italic;
+                font-weight: 100;
             }
         }
 

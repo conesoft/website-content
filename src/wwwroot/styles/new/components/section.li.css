@@ -4,7 +4,7 @@
     }
 
     main > section {
-        font-weight: 100;
+        /*font-weight: 100;*/
     }
 
         main > section code {
@@ -29,6 +29,16 @@
         main > section > ul > li > section a {
             &, * {
                 display: initial;
+            }
+        }
+
+        main > section > ul[empty] {
+            > li, > li * {
+                text-align: center;
+                align-content: center;
+                opacity: 0.7;
+                font-style: italic;
+                font-weight: 100;
             }
         }
 
