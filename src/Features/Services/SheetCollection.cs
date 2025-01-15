@@ -2,5 +2,12 @@
 
 public class SheetCollection()
 {
-    public Sheet[] Sheets { get; private set; } = Directory.GetFiles("wwwroot", "*.css", SearchOption.TopDirectoryOnly).Select(f => new Sheet(Path.GetFileName(f))).ToArray();
+    static readonly Files.Directory root = Files.Directory.From("wwwroot");
+
+    public Sheet[] Sheets { get; private set; } =
+        root
+        .FilteredFiles("*.css", allDirectories: false)
+        .Where(f => (root / "styles" / f.NameWithoutExtension).Exists)
+        .Select(f => new Sheet(f.Name))
+        .ToArray();
 }

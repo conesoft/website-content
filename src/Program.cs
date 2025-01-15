@@ -16,21 +16,15 @@ builder
 builder.Services
     .AddCompiledHashCacheBuster()
     .AddHttpClient()
-    .AddAntiforgery()
-    .AddRazorComponents().AddInteractiveServerComponents();
+    .AddRazorComponents().AddInteractiveServerComponents()
+    ;
 
 var app = builder.Build();
 
-app
-    .UseCompiledHashCacheBuster()
-    .UseStaticFiles()
-    .UseAntiforgery();
-
+app.MapPwaInformationFromAppSettings();
 app.MapUsersWithStorage();
-
 app.MapStaticAssets();
 app.MapSheets();
-app.MapPwaInformationFromAppSettings();
-app.MapRazorComponents<App>().AddInteractiveServerRenderMode();//.AddAdditionalAssemblies(AdditionalComponents.Assembly);
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
 app.Run();

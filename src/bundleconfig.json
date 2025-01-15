@@ -1,6 +1,6 @@
 [
   {
-    "outputFileName": "wwwroot/style.css",
+    "outputFileName": "wwwroot/old.css",
     "inputFiles": [
       "wwwroot/styles/old/**/*.css"
     ]
