@@ -12,7 +12,13 @@
     }
 
     body {
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    html:has(main.fit-screen), body:has(main.fit-screen) {
+        @media (aspect-ratio > 1) {
+            height: 100%;
+        }
     }
 
     header {

@@ -45,7 +45,7 @@
         display: block;
         font-weight: 900;
 
-        &:hover:not(:disabled) {
+        &:hover:not(:disabled), &:has(input:not(:disabled):checked) {
             background: var(--button-color);
             color: var(--color);
             box-shadow: inset 0 0 1rem var(--button-color), 0 0 1rem var(--button-color);
@@ -115,7 +115,7 @@ body:has(dialog[open]) {
     }
 }
 @layer components.form {
-    main form input[type]:not([type=number]):not([type=date]):not(:hover), main form label:has(>input[type=radio]):not(:hover) {
+    main form input[type]:not([type=number]):not([type=date]):not(:hover), main form label:has(>input[type=radio]:not(:checked)):not(:hover) {
         background: var(--background-color-80);
     }
 }
@@ -221,12 +221,12 @@ body:has([fullscreen-viewer]) {
                 font-size: 1rem;
             }
 
-        main > section > ul > li > [src$=".svg"]:first-of-type {
+        main > section > ul:not([class]) > li > [src$=".svg"]:first-of-type {
             grid-column: 2;
             place-self: center;
         }
 
-        main > section > ul > li > *:not([src$=".svg"]):not(header):first-child {
+        main > section > ul:not([class]) > li > *:not([src$=".svg"]):not(header):first-child {
             grid-column: 3;
         }
 
@@ -249,7 +249,6 @@ body:has([fullscreen-viewer]) {
         main > section menu {
             display: flex;
             justify-self: end;
-            margin-inline-start: -0.5rem;
         }
 
             main > section li:not(:hover) menu {
@@ -278,6 +277,54 @@ body:has([fullscreen-viewer]) {
     }
 }
 
+
+ul.with-icon {
+    grid-template-columns: 1fr;
+    place-items: stretch;
+
+    & > li {
+        grid-template-columns: 2rem 1fr auto;
+        place-items: stretch;
+
+        & > *:not(img[src$=".svg"]):not(.icon):first-child {
+            grid-column: 2;
+        }
+
+        & > section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1ch;
+            padding-inline-end: 0.5rem;
+
+            & > *:first-child {
+            flex-grow: 1;
+            }
+        }
+    }
+}
+
+ul.without-icon {
+
+    grid-template-columns: 1fr;
+    place-items: stretch;
+
+    & > li {
+        grid-template-columns: 1fr auto;
+        place-items: stretch;
+
+        & > section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1ch;
+            padding-inline-start: 0.5rem;
+            padding-inline-end: 0.5rem;
+
+            & > *:first-child {
+            flex-grow: 1;
+            }
+        }
+    }
+}
 @layer components.tags {
     .tags {
         display: flex;
@@ -323,7 +370,13 @@ body:has([fullscreen-viewer]) {
     }
 
     body {
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    html:has(main.fit-screen), body:has(main.fit-screen) {
+        @media (aspect-ratio > 1) {
+            height: 100%;
+        }
     }
 
     header {
@@ -430,6 +483,7 @@ body:has([fullscreen-viewer]) {
 
     img[src$=".svg"] {
         width: 1rem;
+        place-self: center;
     }
 
     script, style, head, meta, base, title, link {
@@ -559,8 +613,38 @@ body:has([fullscreen-viewer]) {
     }
 
     @layer shadow {
-        body>main {
+/*        body>main {
             filter: drop-shadow(0 0 1rem black);
+        }*/
+
+        /* view-transitions make drop-shadow flicker, so let's fix it manually */
+        body > main > section {
+          position: relative;
+  
+          &[title] {
+            &::before, &::after {  
+              display: inline-block;
+              width: max-content;
+              height: 2rem;
+              font-weight: 900;
+              content: attr(title);
+              padding-inline: 1rem;
+              place-content: center;
+              background: var(--accent-color);
+              color: var(--background-color);
+            }
+
+            &::after {
+              position: absolute;
+              inset: 0;
+              z-index: 1;
+            }
+          }
+
+          & > *, &::before {
+            box-shadow: 0 0 2rem rgba(0, 0, 0, 1);
+            position: relative;
+          }
         }
     }
 

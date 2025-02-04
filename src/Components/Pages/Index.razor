@@ -17,9 +17,8 @@
 <main>
     @foreach (var category in sheets.Sheets.GroupBy(s => s.Filename.Substring(0, s.Filename.IndexOf("."))))
     {
-        <section>
-            <header>@category.Key</header>
-            <ul>
+        <section title="@category.Key">
+            <ul class="with-icon">
                 @foreach (var sheet in category)
                 {
                     <li>

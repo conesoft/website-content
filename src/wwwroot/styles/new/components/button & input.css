@@ -11,7 +11,7 @@
         display: block;
         font-weight: 900;
 
-        &:hover:not(:disabled) {
+        &:hover:not(:disabled), &:has(input:not(:disabled):checked) {
             background: var(--button-color);
             color: var(--color);
             box-shadow: inset 0 0 1rem var(--button-color), 0 0 1rem var(--button-color);

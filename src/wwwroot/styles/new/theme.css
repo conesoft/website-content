@@ -84,8 +84,38 @@
     }
 
     @layer shadow {
-        body>main {
+/*        body>main {
             filter: drop-shadow(0 0 1rem black);
+        }*/
+
+        /* view-transitions make drop-shadow flicker, so let's fix it manually */
+        body > main > section {
+          position: relative;
+  
+          &[title] {
+            &::before, &::after {  
+              display: inline-block;
+              width: max-content;
+              height: 2rem;
+              font-weight: 900;
+              content: attr(title);
+              padding-inline: 1rem;
+              place-content: center;
+              background: var(--accent-color);
+              color: var(--background-color);
+            }
+
+            &::after {
+              position: absolute;
+              inset: 0;
+              z-index: 1;
+            }
+          }
+
+          & > *, &::before {
+            box-shadow: 0 0 2rem rgba(0, 0, 0, 1);
+            position: relative;
+          }
         }
     }
 
