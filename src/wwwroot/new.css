@@ -34,7 +34,7 @@
 }
 @layer components.buttoninput {
 
-    button, input, label:has(>input), label[for], menu a, section a:not([href]) {
+    button, input, label:has(>input), label[for], menu a, section a:not([href]), select, option {
         --button-color: var(--accent-color);
         --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color));
 
@@ -272,7 +272,7 @@ body:has([fullscreen-viewer]) {
                 background-color: transparent;
             }
 
-    menu:has(a) {
+    menu:has(a), menu:has(button) {
         z-index: 2;
     }
 }
@@ -325,6 +325,14 @@ ul.without-icon {
         }
     }
 }
+@layer components.selectoptions {
+    option {
+        background-color: var(--background-color);
+        color: var(--accent-color);
+    }
+
+}
+
 @layer components.tags {
     .tags {
         display: flex;
@@ -700,6 +708,9 @@ ul.without-icon {
         }
     }
 
+    [inert] {
+        opacity: 0.5;
+    }
 
     [risky] {
         --accent-color: var(--warning-color);

@@ -1,6 +1,6 @@
 ﻿@layer components.buttoninput {
 
-    button, input, label:has(>input), label[for], menu a, section a:not([href]) {
+    button, input, label:has(>input), label[for], menu a, section a:not([href]), select, option {
         --button-color: var(--accent-color);
         --button-color-75: color-mix(in oklab, var(--button-color) 75%, var(--background-color));
 

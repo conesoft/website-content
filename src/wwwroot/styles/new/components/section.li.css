@@ -68,7 +68,7 @@
                 background-color: transparent;
             }
 
-    menu:has(a) {
+    menu:has(a), menu:has(button) {
         z-index: 2;
     }
 }

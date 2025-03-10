@@ -1,0 +1,7 @@
+﻿@layer components.selectoptions {
+    option {
+        background-color: var(--background-color);
+        color: var(--accent-color);
+    }
+
+}
