@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+	<style>*{color-scheme:light dark;fill:light-dark(#000,#fff)}</style>
+	<path d="M0,4 V6 H6 V0 H4 V4 Z  M16,4 V6 H10 V0 H12 V4 Z  M0,12 V10 H6 V16 H4 V12 Z  M16,12 V10 H10 V16 H12 V12 Z" />
+</svg>
