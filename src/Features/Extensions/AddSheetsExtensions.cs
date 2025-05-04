@@ -1,6 +1,6 @@
-using Conesoft.Website.CDN.Features.Services;
+using Conesoft.Website.Content.Features.Services;
 
-namespace Conesoft.Website.CDN.Features.Extensions;
+namespace Conesoft.Website.Content.Features.Extensions;
 
 public static class AddSheetsExtensions
 {

@@ -4,16 +4,15 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<RootNamespace>Conesoft.Website.CDN</RootNamespace>
+		<RootNamespace>Conesoft.Website.Content</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Conesoft.Hosting" Version="3.5.10" />
+		<PackageReference Include="Conesoft.Hosting" Version="3.7.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\blazor-components\src\Blazor Components.csproj" />
-		<ProjectReference Include="..\..\branding\Content.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,10 +1,10 @@
 ﻿using System.Security.Cryptography;
 
-namespace Conesoft.Website.CDN.Features.Services;
+namespace Conesoft.Website.Content.Features.Services;
 
 public record Sheet(string Filename)
 {
-    public string Url => $"https://cdn.conesoft.net/{Filename}";
+    public string Url => $"https://content.conesoft.net/{Filename}";
     public string Path => $"wwwroot/{Filename}";
     public string Category => Filename.EndsWith(".min.css") ? "minified" : "uncompressed";
     public string Md5 { get; } = CalculateMd5(Filename);

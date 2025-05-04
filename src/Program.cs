@@ -1,7 +1,7 @@
 using Conesoft.Hosting;
 using Conesoft.PwaGenerator;
-using Conesoft.Website.CDN.Components;
-using Conesoft.Website.CDN.Features.Extensions;
+using Conesoft.Website.Content.Components;
+using Conesoft.Website.Content.Features.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,17 +10,14 @@ builder
     .AddHostEnvironmentInfo()
     .AddLoggingService()
     .AddUsersWithStorage()
-    .AddSheets()
-    ;
-
-builder.Services
     .AddCompiledHashCacheBuster()
-    .AddHttpClient()
-    .AddRazorComponents().AddInteractiveServerComponents()
+    .AddHostingDefaults()
+    .AddSheets()
     ;
 
 var app = builder.Build();
 
+app.UseCompiledHashCacheBuster();
 app.MapPwaInformationFromAppSettings();
 app.MapUsersWithStorage();
 app.MapStaticAssets();

@@ -1,9 +1,9 @@
 ﻿@page "/"
-@using Conesoft.Blazor.Components.Interfaces
-@using Conesoft.Blazor.Components
 @using System.Reflection
 @using System.Text.RegularExpressions
-@using Conesoft.Website.CDN.Features.Services
+@using Conesoft.Blazor.Components
+@using Conesoft.Blazor.Components.Interfaces
+@using Conesoft.Website.Content.Features.Services
 
 @inject SheetCollection sheets
 
@@ -11,7 +11,7 @@
     <HomeButtonContent>⌂</HomeButtonContent>
     <NavContent>
         <NavLink>conesoft</NavLink> ▸
-        <NavLink Match=NavLinkMatch.All href="/">cdn</NavLink>
+        <NavLink Match=NavLinkMatch.All href="/">content</NavLink>
     </NavContent>
 </UserHeaderNav>
 <main>
