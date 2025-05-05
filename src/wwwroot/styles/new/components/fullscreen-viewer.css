@@ -23,3 +23,7 @@ body:has([fullscreen-viewer]) {
     width: 100cqw;
     height: 100cqh;
 }
+
+body:has([fullscreen-viewer].playing) {
+    cursor: none;
+}

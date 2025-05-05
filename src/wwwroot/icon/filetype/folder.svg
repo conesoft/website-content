@@ -1,0 +1,4 @@
+﻿<svg viewBox="-.5 -.5 16 16" xmlns="http://www.w3.org/2000/svg">
+	<style>*{color-scheme:light dark;fill:light-dark(#000,#fff)}</style>
+	<path d="M1,5 v8 h13 v-8 h-6 l-2,-2 h-3 z"  />
+</svg>
