@@ -22,14 +22,14 @@
                 @foreach (var sheet in category)
                 {
                     <li>
-                        <img src="icons/file-icon.svg" />
+                        <img src="icon/filetype/default.svg" />
                         <section>
                             <a href="@sheet.Url?v=@sheet.Md5">@sheet.Url?<b style="color: var(--accent-color)">v=@sheet.Md5</b></a>
                         </section>
                         <menu>
                             <li>
                                 <a title="copy url" onclick="@((MarkupString)$"""navigator.clipboard.writeText('{sheet.Url}?v={sheet.Md5}')""")">
-                                    <img src="icons/copy.svg" />
+                                    <img src="icon/control/command/copy.svg" />
                                 </a>
                             </li>
                         </menu>
@@ -41,10 +41,27 @@
                         <menu>
                             <li>
                                 <a title="copy embed code" onclick="@((MarkupString)$"""navigator.clipboard.writeText('<link rel=\x22stylesheet\x22 type=\x22text/css\x22 href=\x22{sheet.Url}?v={sheet.Md5}\x22>')""")">
-                                    <img src="icons/copy.svg" />
+                                    <img src="icon/control/command/copy.svg" />
                                 </a>
                             </li>
                         </menu>
+                    </li>
+                }
+            </ul>
+        </section>
+    }
+    @foreach (var group in (Conesoft.Files.Directory.From(Environment.CurrentDirectory) / "wwwroot" / "icon").Directories)
+    {
+        <section title="@group.Name">
+            <ul class="with-icon">
+                @foreach (var file in group.FilteredFiles("*.svg", allDirectories: true))
+                {
+                    var content = file.Path.Replace(group.Path + "\\", "").Replace("\\", "/").Replace(".svg", "");
+                    <li>
+                        <img src="icon/@group.Name/@(content).svg" />
+                        <section>
+                            <a href="icon/@group.Name/@(content).svg">@content</a>
+                        </section>
                     </li>
                 }
             </ul>
